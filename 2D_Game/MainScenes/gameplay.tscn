@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://b3cbmfu8tsa3e" path="res://textures/audio/zen_man-melodic-techno-03-extended-version-moogify-9867.mp3" id="8_b2ixk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2x61r"]
-size = Vector2(572, 117)
+size = Vector2(806, 117)
 
 [node name="Gameplay" type="Node2D"]
 
@@ -28,7 +28,8 @@ scale = Vector2(5.03125, 5.5937495)
 texture = ExtResource("3_3tnba")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Background"]
-position = Vector2(1.5900618, -130.68158)
+position = Vector2(33.590065, -151.06148)
+scale = Vector2(1.2, 1.2)
 amount = 130
 texture = ExtResource("4_3tnba")
 lifetime = 30.06
@@ -52,19 +53,21 @@ script = ExtResource("5_2x61r")
 [node name="collisions" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collisions"]
-polygon = PackedVector2Array(-1, 0, -337, 612, 4, 600)
+polygon = PackedVector2Array(-1, 0, -302, 769, 1, 877)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="collisions"]
-polygon = PackedVector2Array(3, 0, 459, -180, 453, -3)
+position = Vector2(-1.6138153, -4.0625)
+scale = Vector2(0.98793864, 0.9826389)
+polygon = PackedVector2Array(3, 0, 459, -180, 824.55914, 1.0812721)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="collisions"]
-position = Vector2(461, 601)
-polygon = PackedVector2Array(-12, -1, -12, -622, 216, -16)
+position = Vector2(816, 604)
+polygon = PackedVector2Array(-10, 205, -12, -622, 216, -16)
 
 [node name="BottomWall" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWall"]
-position = Vector2(247, 658.5)
+position = Vector2(399, 859)
 shape = SubResource("RectangleShape2D_2x61r")
 
 [node name="HUD" parent="." instance=ExtResource("6_i6y8e")]

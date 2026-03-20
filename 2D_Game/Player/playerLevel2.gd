@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name player
 
 var plLaser := preload("res://Laser/laser.tscn")
 
@@ -9,14 +10,6 @@ var plLaser := preload("res://Laser/laser.tscn")
 @export var life: int = 3
 @export var speed: float = 200.0
 @export var fireDelay: float = 0.2
-
-func _process(_delta):
-	if Input.is_action_just_pressed("shoot") and fireDelayTimer.is_stopped():
-		fireDelayTimer.start(fireDelay)
-		for weapon in firingPosition.get_children():
-			var laser = plLaser.instantiate()
-			laser.global_position = weapon.global_position
-			get_tree().current_scene.add_child(laser)
 
 func _physics_process(_delta):
 	var dirVec := Vector2.ZERO

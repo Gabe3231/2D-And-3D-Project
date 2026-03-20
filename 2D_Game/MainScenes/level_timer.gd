@@ -2,7 +2,7 @@ extends Timer
 
 func _ready():
 	timeout.connect(_on_timeout)
-	start(120.0)
+	start(20.0)
 
 func _on_timeout():
 	print("Timer done")

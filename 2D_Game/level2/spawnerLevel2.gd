@@ -2,18 +2,24 @@ extends Node2D
 
 @onready var spawnTimer := $SpawnTimer
 
-var preloadedEnemy = [preload("res://Meteor/meteor.tscn")]
-var NextSpawn := .5
+var preloadedEnemy = [
+	preload("res://OtherShips/other_ships.tscn"),
+]
+
+var NextSpawn := 1.2
 
 func _ready():
 	randomize()
+	spawnTimer.timeout.connect(_on_spawn_timer_timeout)
 	spawnTimer.start(NextSpawn)
 
-func _on_spawn_timer_timeout():
+func _on_spawn_timer_timeout() -> void:
 	var enemyPreload = preloadedEnemy[randi() % preloadedEnemy.size()]
 	var enemy = enemyPreload.instantiate()
-	# random spawn bewteen these two ranges on x axis
-	var xPos = randf_range(-350.0, 350.0)
+
+	var xPos = randf_range(0.0, 500.0)
 	enemy.global_position = Vector2(xPos, 0.0)
+
 	get_tree().current_scene.add_child(enemy)
+
 	spawnTimer.start(NextSpawn)

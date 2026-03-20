@@ -1,23 +1,40 @@
-[gd_scene load_steps=6 format=3 uid="uid://xae4gi612vo"]
+[gd_scene load_steps=10 format=3 uid="uid://xae4gi612vo"]
 
 [ext_resource type="Texture2D" uid="uid://bh085opu5nfqi" path="res://textures/Screenshot 2026-03-03 at 12.07.07 pm.png" id="1_3jht0"]
 [ext_resource type="Texture2D" uid="uid://byyycnkigk7fq" path="res://textures/Screenshot_2026-03-05_at_6.20.55_pm-removebg-preview.png" id="2_abyik"]
+[ext_resource type="Script" uid="uid://cc1bmis1urlr2" path="res://Player/playerLevel2.gd" id="2_bhpml"]
+[ext_resource type="Script" uid="uid://cdoih7ey06h1j" path="res://level2/spawnerLevel2.gd" id="2_mplax"]
 [ext_resource type="PackedScene" uid="uid://bk1hw8rm6k2mj" path="res://Player/player.tscn" id="3_750q1"]
-[ext_resource type="Script" uid="uid://cbj2ajecknckj" path="res://MainScenes/spawner.gd" id="4_fs7pb"]
+[ext_resource type="AudioStream" uid="uid://b3cbmfu8tsa3e" path="res://textures/audio/zen_man-melodic-techno-03-extended-version-moogify-9867.mp3" id="5_mplax"]
+[ext_resource type="PackedScene" uid="uid://djxf64f0ewof0" path="res://HUD/hud.tscn" id="6_bhpml"]
+[ext_resource type="Script" uid="uid://ck37ewr3quwy0" path="res://MainScenes/level_timer.gd" id="7_a1tsa"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_750q1"]
-size = Vector2(572, 117)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xqwhf"]
+size = Vector2(806, 117)
 
 [node name="LevelTwo" type="Node2D"]
 
+[node name="Player" parent="." instance=ExtResource("3_750q1")]
+position = Vector2(-1, -1)
+script = ExtResource("2_bhpml")
+life = 3
+fireDelay = 0.2
+
+[node name="Spawner" type="Node2D" parent="."]
+position = Vector2(219, -96)
+script = ExtResource("2_mplax")
+
+[node name="SpawnTimer" type="Timer" parent="Spawner"]
+
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(241, 321)
-scale = Vector2(2.0711112, 2.6546392)
+z_index = -2
+position = Vector2(226, 313.00003)
+scale = Vector2(5.03125, 5.5937495)
 texture = ExtResource("1_3jht0")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-position = Vector2(207, -107)
-scale = Vector2(3, 3)
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Background"]
+position = Vector2(33.590065, -151.06148)
+scale = Vector2(1.2, 1.2)
 amount = 130
 texture = ExtResource("2_abyik")
 lifetime = 30.06
@@ -32,32 +49,37 @@ scale_amount_min = 0.0
 scale_amount_max = 0.15
 color = Color(1, 1, 0.96862745, 1)
 
-[node name="Player" parent="." instance=ExtResource("3_750q1")]
-position = Vector2(-1, -1)
-speed = 300.0
-
-[node name="Spawner" type="Node2D" parent="."]
-position = Vector2(219, -96)
-script = ExtResource("4_fs7pb")
-
-[node name="SpawnTimer" type="Timer" parent="Spawner"]
-
 [node name="collisions" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collisions"]
-polygon = PackedVector2Array(-1, 0, -337, 612, 4, 600)
+polygon = PackedVector2Array(-1, 0, -302, 769, 1, 877)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="collisions"]
-polygon = PackedVector2Array(3, 0, 459, -180, 453, -3)
+position = Vector2(-1.6138153, -4.0625)
+scale = Vector2(0.98793864, 0.9826389)
+polygon = PackedVector2Array(3, 0, 459, -180, 824.55914, 1.0812721)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="collisions"]
-position = Vector2(461, 601)
-polygon = PackedVector2Array(-12, -1, -12, -622, 216, -16)
+position = Vector2(816, 604)
+polygon = PackedVector2Array(-10, 205, -12, -622, 216, -16)
 
 [node name="BottomWall" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWall"]
-position = Vector2(247, 658.5)
-shape = SubResource("RectangleShape2D_750q1")
+position = Vector2(399, 859)
+shape = SubResource("RectangleShape2D_xqwhf")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_mplax")
+volume_db = 10.0
+autoplay = true
+
+[node name="HUD" parent="." instance=ExtResource("6_bhpml")]
+
+[node name="LevelTimer" type="Timer" parent="."]
+wait_time = 120.0
+one_shot = true
+autostart = true
+script = ExtResource("7_a1tsa")
 
 [connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="_on_spawn_timer_timeout"]

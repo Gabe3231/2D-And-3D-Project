@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://de82nxw26um3v"]
+
+[ext_resource type="Script" uid="uid://bvnhw8n8p8x48" path="res://OtherShips/other_ships.gd" id="1_mor0i"]
+[ext_resource type="Texture2D" uid="uid://1ka4auiautlm" path="res://textures/Nautolan Ship - Fighter - Base.png" id="2_ceygs"]
+
+[node name="OtherShips" type="Area2D"]
+script = ExtResource("1_mor0i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(277.84778, -140.17499)
+rotation = -3.1415927
+scale = Vector2(4.432743, 4.349218)
+texture = ExtResource("2_ceygs")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(278, -138.74242)
+rotation = 3.1415925
+scale = Vector2(4.0690947, 4.2551003)
+polygon = PackedVector2Array(0, 0, 16.219826, 1.9406357, 12, 4, 10, 5, 5, 9, 6, 11, 6, 13, -6, 13, -6, 10, -5, 9, -8, 6, -10, 5, -15, 3, -16.957092, 1.7056198, -11, -3, -7, -6, -5, -6, -5, -11, -3, -13, -1, -13, 1, -13, 3.1948166, -13.335154, 4, -11, 5, -8.999998, 5, -5.999998, 9, -4.999998, 13, -1.9999981, 16, 2.0000038)

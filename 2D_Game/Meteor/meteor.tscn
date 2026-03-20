@@ -12,15 +12,16 @@ maxrotationspeed = 10.0
 life = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(220, 7)
+position = Vector2(400, -118.000015)
+scale = Vector2(1.3529412, 1.2837838)
 texture = ExtResource("1_omjit")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(206, 7)
-polygon = PackedVector2Array(-0.34595722, -12.561672, -30.345959, -41.561672, -53.34596, -6.5616717, -40.34596, 27.438328, -8.345957, 27.438328, 28.654041, 54.438328, 79.654045, 31.438328, 72.654045, -16.561672, 27.654041, -55.561672, -30.345959, -41.561672)
+position = Vector2(363, -102)
+polygon = PackedVector2Array(-52, -28, -53.34596, -6.5616717, -40.34596, 27.438328, 9, 21, 63, 53, 130, 23, 116, -39, 57, -85, -23, -68)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(222, 7)
-rect = Rect2(-71, -59, 144, 117)
+position = Vector2(370, -122)
+rect = Rect2(-71, -75, 204, 160)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
