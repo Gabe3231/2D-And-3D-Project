@@ -1,5 +1,4 @@
 extends CharacterBody2D
-class_name player
 
 var plLaser := preload("res://Laser/laser.tscn")
 
@@ -39,4 +38,4 @@ func damage(amount: int):
 		die()
 		
 func die():
-	get_tree().change_scene_to_file("res://DeathScreen/DeathScreend.tscn")
+	get_tree().change_scene_to_file("res://DeathScreen/death_screen_2.tscn")
