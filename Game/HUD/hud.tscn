@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://djxf64f0ewof0"]
+
+[ext_resource type="PackedScene" uid="uid://bdtr1b62y0vrj" path="res://HUD/lifeIcon.tscn" id="1_h61sl"]
+[ext_resource type="Script" uid="uid://cwvv6eh3ras10" path="res://HUD/hud.gd" id="1_mi5n8"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mi5n8")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 183.0
+offset_top = 11.0
+offset_right = 266.0
+offset_bottom = 41.0
+size_flags_vertical = 0
+text = "423423423"
+
+[node name="lifeContainer" type="HBoxContainer" parent="."]
+z_index = 4
+layout_mode = 1
+anchors_preset = -1
+offset_top = 65.0
+offset_right = 422.0
+offset_bottom = 437.0
+rotation = -1.5707964
+scale = Vector2(0.15, 0.15)
+
+[node name="LifeIcon" parent="lifeContainer" instance=ExtResource("1_h61sl")]
+layout_mode = 2

@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7j515ars43yn"]
+
+[ext_resource type="Script" uid="uid://bv6ktfifatrw4" path="res://scenes/main.gd" id="1_0wfyh"]
+[ext_resource type="Texture2D" uid="uid://d3yl73q36xoft" path="res://Assets/297be290-37be-44f0-a666-ef7885616407.jpg" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://c6hnh32wm88sg" path="res://scenes/ship.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://gn1t6rvasjvu" path="res://ground.tscn" id="4_jyhfs"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_0wfyh")
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(501.62503, 418.62494)
+scale = Vector2(0.14522925, 0.20713572)
+texture = ExtResource("1_o5qli")
+
+[node name="ship" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(295, 596)
+
+[node name="ground" parent="." instance=ExtResource("4_jyhfs")]

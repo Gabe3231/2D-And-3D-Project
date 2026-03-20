@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://uxarr7w4uhjs"]
+
+[ext_resource type="Texture2D" uid="uid://d3yl73q36xoft" path="res://Assets/297be290-37be-44f0-a666-ef7885616407.jpg" id="1_t4gw0"]
+[ext_resource type="Texture2D" uid="uid://ccm7wyl3muue8" path="res://Assets/Screenshot_2026-02-14_at_10.52.49_am-removebg-preview.png" id="2_dpp0m"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3497, 1997)
+texture = ExtResource("1_t4gw0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(217, 217)
+scale = Vector2(2.028436, 2.1666667)
+texture = ExtResource("2_dpp0m")

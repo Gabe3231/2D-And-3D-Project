@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvtw6ongdthhe"]
+
+[ext_resource type="Script" uid="uid://dlohjl2pht0gj" path="res://Story/story_scene_1.gd" id="1_1mqqm"]
+
+[node name="StoryScene1" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_1mqqm")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 450.0
+offset_bottom = 600.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 25.0
+offset_right = 419.0
+offset_bottom = 421.0
+text = "Jan: We Need to get to Earth! 
+
+Sakif: Oh no we don't have enough time. 
+There's too much traffic.
+
+Captain: We can cut through the neighboring sectors
+
+Sakif: But thats dangerous!
+
+Captain: We have no choice. Here we go!"
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 329.0
+offset_right = 422.0
+offset_bottom = 475.0
+text = "Begin"
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

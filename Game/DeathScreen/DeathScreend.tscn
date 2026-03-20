@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxlokjxw7eg2x"]
+
+[ext_resource type="Script" uid="uid://dy20n6hs2upri" path="res://DeathScreen/death_screend.gd" id="1_bj3o6"]
+
+[node name="DeathScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_bj3o6")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 450.0
+offset_bottom = 600.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.026
+anchor_right = -0.026
+offset_left = 43.0
+offset_top = 324.0
+offset_right = 133.0
+offset_bottom = 402.0
+text = "Retry
+"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 270.0
+offset_top = 328.0
+offset_right = 359.0
+offset_bottom = 394.0
+text = "Exit"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

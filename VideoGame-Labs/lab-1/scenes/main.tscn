@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7j515ars43yn"]
+
+[ext_resource type="Script" uid="uid://bv6ktfifatrw4" path="res://scenes/main.gd" id="1_0wfyh"]
+[ext_resource type="Texture2D" uid="uid://d3yl73q36xoft" path="res://Assets/297be290-37be-44f0-a666-ef7885616407.jpg" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://c6hnh32wm88sg" path="res://scenes/ship.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://uxarr7w4uhjs" path="res://scenes/bg.tscn" id="6_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://dj4odf32al20f" path="res://Assets/mars-landscape-alien-planet-desert-background/2206_w026_n002_2030b_p1_2030.jpg" id="6_tefeu"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_0wfyh")
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(347.62503, 502.62497)
+scale = Vector2(0.10123554, 0.24912523)
+texture = ExtResource("1_o5qli")
+
+[node name="ship" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(325, 474)
+
+[node name="bg3" type="Sprite2D" parent="."]
+position = Vector2(2161, 500.5)
+scale = Vector2(0.20423566, 0.4532177)
+texture = ExtResource("6_tefeu")
+
+[node name="Node2D" parent="." instance=ExtResource("6_o6xl0")]
+position = Vector2(659.00006, 2)
+scale = Vector2(0.10123554, 0.24912523)

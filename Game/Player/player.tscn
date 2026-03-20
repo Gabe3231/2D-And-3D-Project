@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk1hw8rm6k2mj"]
+
+[ext_resource type="Script" uid="uid://dngkyjubb8s1l" path="res://Player/Player.gd" id="1_4ntmi"]
+[ext_resource type="Texture2D" uid="uid://csg5sswifo4qg" path="res://textures/ship.png" id="1_l8h54"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l8h54"]
+radius = 24.0
+height = 74.0
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(3, 1)
+script = ExtResource("1_4ntmi")
+life = 1
+fireDelay = 0.1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(220.12941, 529.966)
+rotation = -1.5707964
+scale = Vector2(0.21817061, 0.21037313)
+texture = ExtResource("1_l8h54")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(219.00002, 530.00006)
+scale = Vector2(1, 1.0000001)
+shape = SubResource("CapsuleShape2D_l8h54")
+
+[node name="FiringPosition" type="Node2D" parent="."]
+
+[node name="CenterLaser" type="Node2D" parent="FiringPosition"]
+position = Vector2(219, 485)
+
+[node name="FireDelayTimer" type="Timer" parent="."]
+one_shot = true

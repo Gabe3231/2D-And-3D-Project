@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdtr1b62y0vrj"]
+
+[ext_resource type="Texture2D" uid="uid://csg5sswifo4qg" path="res://textures/ship.png" id="1_vphwo"]
+
+[node name="LifeIcon" type="TextureRect"]
+offset_top = 66.0
+offset_right = 422.0
+offset_bottom = 438.0
+rotation = -1.5707964
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_vphwo")

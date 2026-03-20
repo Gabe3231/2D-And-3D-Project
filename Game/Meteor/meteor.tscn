@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1fb6grwkl63w"]
+
+[ext_resource type="Texture2D" uid="uid://bg485dhv3egwh" path="res://textures/meteorBig.png" id="1_omjit"]
+[ext_resource type="Script" uid="uid://bf8rxd54lu4on" path="res://Meteor/meteor.gd" id="1_v21uo"]
+
+[node name="Meteor" type="Area2D" groups=["damagable"]]
+script = ExtResource("1_v21uo")
+minspeed = 180.0
+maxspeed = 230.0
+minrotationspeed = 5.0
+maxrotationspeed = 10.0
+life = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(220, 7)
+texture = ExtResource("1_omjit")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(206, 7)
+polygon = PackedVector2Array(-0.34595722, -12.561672, -30.345959, -41.561672, -53.34596, -6.5616717, -40.34596, 27.438328, -8.345957, 27.438328, 28.654041, 54.438328, 79.654045, 31.438328, 72.654045, -16.561672, 27.654041, -55.561672, -30.345959, -41.561672)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(222, 7)
+rect = Rect2(-71, -59, 144, 117)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
