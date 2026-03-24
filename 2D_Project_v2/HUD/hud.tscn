@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://djxf64f0ewof0"]
+
+[ext_resource type="Script" uid="uid://cwvv6eh3ras10" path="res://HUD/hud.gd" id="1_mi5n8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h61sl"]
+font_color = Color(1, 0.27450982, 1, 1)
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mi5n8")
+
+[node name="lifeContainer" type="HBoxContainer" parent="."]
+z_index = 4
+layout_mode = 1
+anchors_preset = -1
+offset_top = 65.0
+offset_right = 422.0
+offset_bottom = 437.0
+rotation = -1.5707964
+scale = Vector2(0.15, 0.15)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+z_index = 10
+layout_mode = 0
+offset_left = 329.0
+offset_top = 32.0
+offset_right = 487.0
+offset_bottom = 59.0
+max_value = 30.0
+
+[node name="Label" type="Label" parent="ProgressBar"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = -28.0
+offset_right = 129.0
+offset_bottom = -5.0
+text = "Progress Bar"
+label_settings = SubResource("LabelSettings_h61sl")
