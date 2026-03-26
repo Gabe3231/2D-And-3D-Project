@@ -1,7 +1,9 @@
 extends Area2D
 
-@export var speed : float = 500
+# set to 350 
+@export var speed : float = 350
 
+# laser speed going up y axis from player
 func _physics_process(delta):
 	position.y -= speed * delta
 

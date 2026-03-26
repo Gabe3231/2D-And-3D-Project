@@ -3,9 +3,12 @@ extends Node2D
 @onready var spawnTimer := $SpawnTimer
 @onready var level_timer := get_tree().current_scene.get_node("LevelTimer")
 
+# required asset
 var preloadedEnemy = [preload("res://Meteor/meteor.tscn")]
+# spawn rate
 var NextSpawn := .5
 
+# make sure enemy spawn is random
 func _ready():
 	randomize()
 	spawnTimer.start(NextSpawn)
@@ -20,7 +23,8 @@ func _on_spawn_timer_timeout():
 	spawnTimer.start(NextSpawn)
 	
 func _process(_delta):
-	# 120 - 110 = 10
+	# exmaple: 120 - 110 = 10
 	# this is so spwaning stops at the last 10 seconds to player knows next level is incoming
+	# chnage as needed to balance game
 	if level_timer.time_left <= 5:
 		spawnTimer.stop()

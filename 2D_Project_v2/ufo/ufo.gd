@@ -1,6 +1,7 @@
 extends Area2D
  
 # speed settings
+# all accurate
 @export var minspeed: float = 80.0
 @export var maxspeed: float = 130.0
 @export var life: int = 3
@@ -9,6 +10,7 @@ extends Area2D
 @export var driftSpeed: float = 2.0
 @export var fireRate: float = 1.0
  
+# required assets
 var oUFOExplosion := preload("res://Meteor/meteor_explosion.tscn")
 var oEnemyLaser := preload("res://UFO/enemy_laser.tscn")
  
@@ -18,24 +20,29 @@ var startX: float = 0.0
  
 @onready var fireTimer := $FireDelayTimer
  
-func _ready() -> void:
+
+func _ready():
+	# set random speed and to set collision and to set shoot speed
 	speed = randf_range(minspeed, maxspeed)
 	startX = position.x
 	body_entered.connect(_on_body_entered)
 	fireTimer.wait_time = fireRate
 	fireTimer.start()
  
-func _physics_process(delta: float) -> void:
+# setting spawn position on x axis and side to side movement
+func _physics_process(delta: float):
 	position.y += speed * delta
 	time += delta
 	position.x = startX + sin(time * driftSpeed) * driftAmplitude
  
-func shoot() -> void:
+# sets shooting position in enemy
+func shoot():
 	var laser = oEnemyLaser.instantiate()
 	laser.global_position = $ShootingPosition.global_position
 	get_tree().current_scene.add_child(laser)
  
-func damage(amount: int) -> void:
+# ufo life and death animation
+func damage(amount: int):
 	life -= amount
 	if life <= 0:
 		var effect = oUFOExplosion.instantiate()
@@ -43,7 +50,8 @@ func damage(amount: int) -> void:
 		effect.global_position = $Sprite2D.global_position
 		queue_free()
  
-func _on_body_entered(body: Node) -> void:
+# collision physics
+func _on_body_entered(body: Node):
 	if body.is_in_group("player"):
 		body.damage(1)
 		queue_free()
@@ -54,11 +62,3 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 func _on_fire_delay_timer_timeout() -> void:
 	shoot()
 	fireTimer.start()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
-func _on_fire_delay_timeout() -> void:
-	pass # Replace with function body.

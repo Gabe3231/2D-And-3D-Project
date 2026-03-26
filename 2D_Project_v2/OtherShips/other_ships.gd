@@ -1,18 +1,23 @@
 extends Area2D
 
-@export var minspeed: float = 100.0
-@export var maxspeed: float = 200.0
+# set to 150 in game
+@export var minspeed: float = 150.0
+# set to 250 in game
+@export var maxspeed: float = 250.0
 
 var speed: float = 0.0
 
-func _ready() -> void:
+# randomizes speed and connects physics of collisions
+func _ready():
 	speed = randf_range(minspeed, maxspeed)
 	body_entered.connect(_on_body_entered)
 
-func _physics_process(delta: float) -> void:
+# objects move down the Y axis
+func _physics_process(delta: float):
 	position.y += speed * delta
 
-func _on_body_entered(body: Node) -> void:
+# basic 
+func _on_body_entered(body: Node):
 	if body.has_method("die"):
 		body.die()
 		queue_free()

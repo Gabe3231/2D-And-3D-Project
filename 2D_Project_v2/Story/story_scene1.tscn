@@ -31,15 +31,15 @@ offset_left = 32.0
 offset_top = 25.0
 offset_right = 793.0
 offset_bottom = 517.0
-text = "Jan: We Need to get to Earth to deliver the diamonds
+text = "Jan: We need to get to Earth to deliver the diamonds
  on time! 
 
-Sakif: Oh no we don't have enough time. 
+Sakif: Oh no, we don't have enough time. 
 There's too much traffic.
 
-Captain: We can cut through the neighboring sectors
+Captain: We can cut through the neighboring sectors.
 
-Sakif: But thats dangerous!
+Sakif: But that's dangerous!
 
 Captain: We have no choice. Here we go!"
 label_settings = SubResource("LabelSettings_1mqqm")
@@ -55,10 +55,12 @@ text = "Begin"
 [node name="Label2" type="Label" parent="Panel"]
 layout_mode = 0
 offset_left = 74.0
-offset_top = 619.0
+offset_top = 658.0
 offset_right = 731.0
 offset_bottom = 790.0
-text = "Survive 1 minutes in the asteroid field"
+text = "Survive 1 minutes in the asteroid field
+
+YOU HAVE ONLY 1 LIFE"
 label_settings = SubResource("LabelSettings_o11s7")
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -38,14 +38,14 @@ offset_bottom = 517.0
 text = "Sakif: We made it! 
 
 Captain: Don't get too excited just yet. We need 
-to cut through the flock of intersteller rays.
+to cut through the flock of interstellar rays.
 
-Sakif: But there's so many of them, and aren't they
-a protected species.
+Sakif: But there are so many of them, and aren't 
+they a protected species.
 
-Jan: Yes, they are so we can't use our LASER.
+Jan: Yes, they are, so we can't use our LASER.
 
-Captain: Lets just go slow and hope for the best."
+Captain: Let's go slow and hope for the best."
 label_settings = SubResource("LabelSettings_x85j2")
 
 [node name="Button" type="Button" parent="Panel"]
@@ -59,12 +59,12 @@ text = "Begin"
 [node name="Label2" type="Label" parent="Panel"]
 layout_mode = 0
 offset_left = 74.0
-offset_top = 619.0
+offset_top = 650.0
 offset_right = 731.0
 offset_bottom = 790.0
-text = "
-Survive 30 seconds
-"
+text = "Survive 30 seconds
+
+YOU HAVE ONLY 1 LIFE"
 label_settings = SubResource("LabelSettings_nqs77")
 horizontal_alignment = 1
 vertical_alignment = 1

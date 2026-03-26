@@ -1,8 +1,9 @@
-[gd_scene format=3 uid="uid://ca47bjl8e1ny4"]
+[gd_scene load_steps=57 format=3 uid="uid://ca47bjl8e1ny4"]
 
 [ext_resource type="Script" uid="uid://biq6uuqmi7u7p" path="res://WinScreen/win_screen.gd" id="1_w8kip"]
 [ext_resource type="Texture2D" uid="uid://dweg4bfxs3xn2" path="res://WinScreen/3492680425 (1).png" id="2_w8kip"]
 [ext_resource type="Texture2D" uid="uid://bu2blu857msin" path="res://textures/SpaceBackground.png" id="3_bctwx"]
+[ext_resource type="AudioStream" uid="uid://dqlr5h51yh6i1" path="res://textures/audio/u_ss015dykrt-brass-fanfare-with-timpani-and-winchimes-reverberated-146260.mp3" id="4_hkyj3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hkyj3"]
 atlas = ExtResource("2_w8kip")
@@ -370,43 +371,48 @@ animations = [{
 [sub_resource type="LabelSettings" id="LabelSettings_55vpb"]
 font_size = 58
 
-[node name="WinScreen" type="Control" unique_id=419587393]
+[node name="WinScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_w8kip")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1738784236]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(401, 387)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_kgp7w")
 autoplay = "default"
 frame_progress = 0.60790026
 
-[node name="Label" type="Label" parent="." unique_id=1630250211]
+[node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 130.0
 offset_top = 43.0
 offset_right = 674.0
 offset_bottom = 267.0
-text = "YOU WIN"
+text = "YOU MADE IT!"
 label_settings = SubResource("LabelSettings_55vpb")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2050377807]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -2
 position = Vector2(397, 394.00003)
 scale = Vector2(9.09375, 8.1796875)
 texture = ExtResource("3_bctwx")
 
-[node name="Button2" type="Button" parent="." unique_id=1012838556]
+[node name="Button2" type="Button" parent="."]
 layout_mode = 0
 offset_left = 75.0
 offset_top = 571.0
 offset_right = 727.0
 offset_bottom = 719.0
 text = "Exit"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_hkyj3")
+volume_db = 5.0
+autoplay = true
 
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

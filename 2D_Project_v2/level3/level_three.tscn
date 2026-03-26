@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b37htc5md52nw"]
+[gd_scene load_steps=12 format=3 uid="uid://b37htc5md52nw"]
 
 [ext_resource type="Script" uid="uid://bakhvft66phre" path="res://level3/gameplay_l3.gd" id="1_eipqk"]
 [ext_resource type="PackedScene" uid="uid://bk1hw8rm6k2mj" path="res://Player/player.tscn" id="2_84udv"]
@@ -14,63 +14,62 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eipqk"]
 size = Vector2(806, 117)
 
-[node name="levelThree" type="Node2D" unique_id=357908656]
+[node name="levelThree" type="Node2D"]
 script = ExtResource("1_eipqk")
 
-[node name="Player" parent="." unique_id=1223166731 instance=ExtResource("2_84udv")]
+[node name="Player" parent="." instance=ExtResource("2_84udv")]
 script = ExtResource("3_eipqk")
-fireDelay = 0.2
 
-[node name="Spawner" type="Node2D" parent="." unique_id=1771374769]
+[node name="Spawner" type="Node2D" parent="."]
 script = ExtResource("3_5vswj")
 
-[node name="SpawnTimer" type="Timer" parent="Spawner" unique_id=1101245785]
+[node name="SpawnTimer" type="Timer" parent="Spawner"]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=265695180]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_aqnu1")
 volume_db = 5.0
 autoplay = true
 
-[node name="HUD" parent="." unique_id=674923667 instance=ExtResource("6_ohlgc")]
+[node name="HUD" parent="." instance=ExtResource("6_ohlgc")]
 
-[node name="LevelTimer" type="Timer" parent="." unique_id=1743727878]
+[node name="LevelTimer" type="Timer" parent="."]
 wait_time = 120.0
 one_shot = true
 autostart = true
 script = ExtResource("7_fk4hj")
 
-[node name="Fade" parent="." unique_id=1985817488 instance=ExtResource("8_tht87")]
+[node name="Fade" parent="." instance=ExtResource("8_tht87")]
 
-[node name="collisions" type="StaticBody2D" parent="." unique_id=2025650972]
+[node name="collisions" type="StaticBody2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collisions" unique_id=1915812860]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collisions"]
 polygon = PackedVector2Array(-1, 0, -302, 769, 1, 877)
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="collisions" unique_id=20534577]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="collisions"]
 position = Vector2(-1.6138153, -4.0625)
 scale = Vector2(0.98793864, 0.9826389)
 polygon = PackedVector2Array(3, 0, 459, -180, 824.55914, 1.0812721)
 
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="collisions" unique_id=1842424223]
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="collisions"]
 position = Vector2(816, 604)
 polygon = PackedVector2Array(-10, 205, -12, -622, 216, -16)
 
-[node name="BottomWall" type="StaticBody2D" parent="." unique_id=388314055]
+[node name="BottomWall" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWall" unique_id=163073922]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWall"]
 position = Vector2(399, 859)
 shape = SubResource("RectangleShape2D_eipqk")
 
-[node name="ScrollingBackground" type="Node2D" parent="." unique_id=916578905]
+[node name="ScrollingBackground" type="Node2D" parent="."]
 script = ExtResource("9_5vswj")
 
-[node name="Sprite1" type="Sprite2D" parent="ScrollingBackground" unique_id=1778312621]
+[node name="Sprite1" type="Sprite2D" parent="ScrollingBackground"]
 z_index = -2
 position = Vector2(402.5, 459)
 scale = Vector2(3.1523438, 3.4044118)
 texture = ExtResource("5_84udv")
 
-[node name="Sprite2" type="Sprite2D" parent="ScrollingBackground" unique_id=984538551]
+[node name="Sprite2" type="Sprite2D" parent="ScrollingBackground"]
 z_index = -2
 position = Vector2(402.5, 459)
 scale = Vector2(3.1523438, 3.4044118)

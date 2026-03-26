@@ -1,11 +1,16 @@
 extends Area2D
 
 # stuff we change on the go to make game fair
-@export var minspeed: float = 100.0
-@export var maxspeed: float = 200.0
-@export var minrotationspeed: float = -30.0
-@export var maxrotationspeed: float = 30.0
-@export var life: int = 20
+#180
+@export var minspeed: float = 180.0
+#230
+@export var maxspeed: float = 230.0
+#-5
+@export var minrotationspeed: float = -10.0
+#10
+@export var maxrotationspeed: float = 10.0
+#3
+@export var life: int = 3
 @export var touch_damage: int = 1
 
 var oMeteorEffect := preload("res://Meteor/meteor_explosion.tscn")

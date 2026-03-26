@@ -5,11 +5,6 @@
 
 [node name="Meteor" type="Area2D" groups=["damagable"]]
 script = ExtResource("1_v21uo")
-minspeed = 180.0
-maxspeed = 230.0
-minrotationspeed = 5.0
-maxrotationspeed = 10.0
-life = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="." groups=["damagable"]]
 position = Vector2(400, -118.000015)

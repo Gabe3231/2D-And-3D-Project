@@ -20,8 +20,6 @@ script = ExtResource("1_xqwhf")
 [node name="Player" parent="." instance=ExtResource("3_750q1")]
 position = Vector2(-1, -1)
 script = ExtResource("2_bhpml")
-life = 3
-fireDelay = 0.2
 
 [node name="Spawner" type="Node2D" parent="."]
 position = Vector2(219, -96)

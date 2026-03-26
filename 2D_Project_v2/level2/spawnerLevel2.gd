@@ -7,7 +7,8 @@ extends Node2D
 # hard coding them in
 var preloadedEnemy = [preload("res://OtherShips/other_ships.tscn"),]
 
-var NextSpawn := 0.5
+# spawn rate
+var NextSpawn := 0.3
 
 # timer 
 func _ready():
@@ -28,7 +29,8 @@ func _on_spawn_timer_timeout() -> void:
 	spawnTimer.start(NextSpawn)
 	
 func _process(_delta):
-	# 120 - 110 = 10
+	# Exmaple: 120 - 110 = 10
 	# this is so spwaning stops at the last 10 seconds to player knows next level is incoming
+	# chnage as needed to balance game
 	if level_timer.time_left <= 5:
 		spawnTimer.stop()

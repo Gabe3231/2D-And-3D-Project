@@ -10,7 +10,6 @@ height = 74.0
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(3, 1)
 script = ExtResource("1_4ntmi")
-fireDelay = 0.1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(377, 663)
@@ -26,7 +25,7 @@ shape = SubResource("CapsuleShape2D_l8h54")
 [node name="FiringPosition" type="Node2D" parent="."]
 
 [node name="CenterLaser" type="Node2D" parent="FiringPosition"]
-position = Vector2(376, 630)
+position = Vector2(376, 622)
 
 [node name="FireDelayTimer" type="Timer" parent="."]
 one_shot = true

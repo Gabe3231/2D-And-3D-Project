@@ -57,12 +57,12 @@ text = "Begin"
 [node name="Label2" type="Label" parent="Panel"]
 layout_mode = 0
 offset_left = 74.0
-offset_top = 619.0
+offset_top = 661.0
 offset_right = 731.0
-offset_bottom = 790.0
-text = "
-Survive 1 minute
-"
+offset_bottom = 796.0
+text = "Survive 1 minute
+
+YOU HAVE ONLY 1 LIFE"
 label_settings = SubResource("LabelSettings_s1auj")
 horizontal_alignment = 1
 vertical_alignment = 1
