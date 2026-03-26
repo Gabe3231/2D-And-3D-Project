@@ -62,7 +62,7 @@ offset_right = 731.0
 offset_bottom = 796.0
 text = "Survive 1 minute
 
-YOU HAVE ONLY 1 LIFE"
+DON'T GET HIT MORE THAN THREE TIMES"
 label_settings = SubResource("LabelSettings_s1auj")
 horizontal_alignment = 1
 vertical_alignment = 1

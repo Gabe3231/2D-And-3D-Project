@@ -34,6 +34,11 @@ func _physics_process(delta: float):
 	position.y += speed * delta
 	time += delta
 	position.x = startX + sin(time * driftSpeed) * driftAmplitude
+	# Only delete if it goes below screen
+	var screen_height = get_viewport_rect().size.y
+	#the 50 is a buffer so it queus after the enemy moves farther than 50 pixels
+	if position.y > screen_height + 50: 
+		queue_free()
  
 # sets shooting position in enemy
 func shoot():
@@ -55,9 +60,6 @@ func _on_body_entered(body: Node):
 	if body.is_in_group("player"):
 		body.damage(1)
 		queue_free()
- 
-func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	queue_free()
  
 func _on_fire_delay_timer_timeout() -> void:
 	shoot()

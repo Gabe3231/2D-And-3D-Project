@@ -64,7 +64,7 @@ offset_right = 731.0
 offset_bottom = 790.0
 text = "Survive 30 seconds
 
-YOU HAVE ONLY 1 LIFE"
+YOU ONLY HAVE 1 LIFE"
 label_settings = SubResource("LabelSettings_nqs77")
 horizontal_alignment = 1
 vertical_alignment = 1

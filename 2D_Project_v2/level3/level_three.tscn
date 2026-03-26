@@ -19,6 +19,7 @@ script = ExtResource("1_eipqk")
 
 [node name="Player" parent="." instance=ExtResource("2_84udv")]
 script = ExtResource("3_eipqk")
+life = 3
 
 [node name="Spawner" type="Node2D" parent="."]
 script = ExtResource("3_5vswj")
