@@ -1,6 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmjh40cyt4mlx"]
+[gd_scene load_steps=16 format=3 uid="uid://dmjh40cyt4mlx"]
 
 [ext_resource type="PackedScene" uid="uid://cleaqj3ujgtnn" path="res://player.tscn" id="1_u52ul"]
+[ext_resource type="Texture2D" uid="uid://darfiquva05y0" path="res://FOXTEX COMPLETE/Textures/wp14397465-escape-the-backrooms-wallpapers.png" id="2_0b4ue"]
+[ext_resource type="ArrayOccluder3D" uid="uid://8vesbwehxxdh" path="res://occluder.occ" id="2_vonw3"]
+[ext_resource type="Texture2D" uid="uid://qqb7jy61o2ow" path="res://FOXTEX COMPLETE/Textures/MISC/MCCT1_4.png" id="3_f2txt"]
+[ext_resource type="Texture2D" uid="uid://bgmbuuw6c0gnt" path="res://FOXTEX COMPLETE/Patches/GLDT1.png" id="4_f2txt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vonw3"]
 
@@ -18,50 +22,110 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u52ul"]
+albedo_texture = ExtResource("4_f2txt")
+uv1_scale = Vector3(5, 5, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ainy"]
+albedo_texture = ExtResource("2_0b4ue")
+uv1_scale = Vector3(8, 8, 8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n6hdu"]
+albedo_texture = ExtResource("2_0b4ue")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_km5ld"]
+albedo_texture = ExtResource("3_f2txt")
+uv1_scale = Vector3(8, 8, 8)
+uv2_scale = Vector3(0, 0, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oi3di"]
+albedo_texture = ExtResource("2_0b4ue")
+uv1_scale = Vector3(8, 8, 8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i2t4f"]
+albedo_texture = ExtResource("4_f2txt")
+uv1_scale = Vector3(5, 5, 5)
 
 [node name="Level" type="Node3D"]
 
 [node name="Border1" type="CSGBox3D" parent="."]
-transform = Transform3D(-3.0898825e-06, -0.0017453257, -0.99999857, 0.0017453259, 0.999997, -0.0017453285, 0.99999857, -0.0017453287, -4.3711324e-08, -89.64, 1.8440598, -3.643693)
+transform = Transform3D(-3.0898825e-06, -0.0017453257, -0.99999857, 0.0017453259, 0.999997, -0.0017453285, 0.99999857, -0.0017453287, -4.3711324e-08, -60.227055, 3.483756, -3.674746)
 use_collision = true
 flip_faces = true
-size = Vector3(-1, 3, 169)
+size = Vector3(-1, 6.178833, 111.4787)
 material = SubResource("StandardMaterial3D_vonw3")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vonw3")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 2, 0)
-shadow_enabled = true
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 2, -26.375582)
+visible = false
+light_bake_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("1_u52ul")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 3.130309)
 
 [node name="Floor" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0087714195, 1.0000005, 0.00492239)
 use_collision = true
 size = Vector3(10, 0, 10)
 material = SubResource("StandardMaterial3D_u52ul")
 
 [node name="LeftWall" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.5, 0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 3.1043339, 0.5)
 use_collision = true
 flip_faces = true
-size = Vector3(-1, 4, 9)
-material = SubResource("StandardMaterial3D_vonw3")
+size = Vector3(-1, 7, 9)
+material = SubResource("StandardMaterial3D_1ainy")
 
 [node name="RightWall" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 3.1030884, 0)
+material_override = SubResource("StandardMaterial3D_n6hdu")
 use_collision = true
 flip_faces = true
-size = Vector3(-1, 3, 10)
+size = Vector3(-1, 7, 9)
+material = SubResource("StandardMaterial3D_km5ld")
+
+[node name="BackWall" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.14414644, 3.1030884, 4.8425837)
+use_collision = true
+flip_faces = true
+size = Vector3(-1, 7, 10.658203)
 material = SubResource("StandardMaterial3D_oi3di")
 
 [node name="Floor2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.16913, 0.98172545, -111.014465)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.96154, 0.98172545, -68.60577)
 use_collision = true
-size = Vector3(253.92703, 0, 214.08597)
-material = SubResource("StandardMaterial3D_u52ul")
+size = Vector3(195.51186, 0, 129.26857)
+material = SubResource("StandardMaterial3D_i2t4f")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
+occluder = ExtResource("2_vonw3")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.027008, 48.175674, -64.64153)
+size = Vector3(231.45856, 1, 140.00317)
+
+[node name="Border2" type="CSGBox3D" parent="."]
+transform = Transform3D(9.094795e-06, 0.003490645, 0.999994, -8.300907e-09, 0.99999404, -0.003490643, -1.0000002, 2.362835e-08, 9.094766e-06, -16.909447, 3.438488, -133.33084)
+use_collision = true
+flip_faces = true
+size = Vector3(-1, 6.178833, 199.11516)
+material = SubResource("StandardMaterial3D_vonw3")
+
+[node name="Border3" type="CSGBox3D" parent="."]
+transform = Transform3D(-1.0000002, 1.1059456e-08, 6.1797564e-06, -1.0826625e-08, 0.99999404, -0.0034906468, -6.1797564e-06, -0.0034906468, -0.9999941, -115.8576, 3.558123, -68.903824)
+use_collision = true
+flip_faces = true
+size = Vector3(-1, 7, 135.87924)
+material = SubResource("StandardMaterial3D_vonw3")
+
+[node name="WorldEnvironment2" type="WorldEnvironment" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3433456, 0)
+light_color = Color(0.9999986, 0.99825305, 0.7674887, 1)
+light_energy = 0.5
+omni_range = 8.0
