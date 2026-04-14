@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dmjh40cyt4mlx"]
+[gd_scene load_steps=14 format=3 uid="uid://dmjh40cyt4mlx"]
 
 [ext_resource type="PackedScene" uid="uid://cleaqj3ujgtnn" path="res://player.tscn" id="1_u52ul"]
 [ext_resource type="Texture2D" uid="uid://darfiquva05y0" path="res://FOXTEX COMPLETE/Textures/wp14397465-escape-the-backrooms-wallpapers.png" id="2_0b4ue"]
@@ -8,18 +8,9 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vonw3"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5xgho"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_u52ul"]
-sky_material = SubResource("ProceduralSkyMaterial_5xgho")
-
-[sub_resource type="Environment" id="Environment_vonw3"]
-background_mode = 2
-sky = SubResource("Sky_u52ul")
-tonemap_mode = 2
-glow_enabled = true
+[sub_resource type="Environment" id="Environment_f2txt"]
+ambient_light_energy = 0.05
+fog_density = 0.09
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u52ul"]
 albedo_texture = ExtResource("4_f2txt")
@@ -55,12 +46,7 @@ size = Vector3(-1, 6.178833, 111.4787)
 material = SubResource("StandardMaterial3D_vonw3")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_vonw3")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 2, -26.375582)
-visible = false
-light_bake_mode = 1
+environment = SubResource("Environment_f2txt")
 
 [node name="Player" parent="." instance=ExtResource("1_u52ul")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 3.130309)
@@ -105,7 +91,7 @@ occluder = ExtResource("2_vonw3")
 [node name="Node" type="Node" parent="."]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.027008, 48.175674, -64.64153)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 249.27924, 49.175674, -64.64153)
 size = Vector3(231.45856, 1, 140.00317)
 
 [node name="Border2" type="CSGBox3D" parent="."]
@@ -122,10 +108,42 @@ flip_faces = true
 size = Vector3(-1, 7, 135.87924)
 material = SubResource("StandardMaterial3D_vonw3")
 
-[node name="WorldEnvironment2" type="WorldEnvironment" parent="."]
-
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3433456, 0)
 light_color = Color(0.9999986, 0.99825305, 0.7674887, 1)
 light_energy = 0.5
 omni_range = 8.0
+
+[node name="Border4" type="CSGBox3D" parent="."]
+transform = Transform3D(0.00025054067, 0.0034906461, 0.99999404, -1.0847328e-08, 0.999994, -0.0034906461, -1.0000001, 8.639763e-07, 0.00025053322, 42.9403, 3.382476, -3.911868)
+use_collision = true
+flip_faces = true
+size = Vector3(-1, 5.958557, 76.01726)
+material = SubResource("StandardMaterial3D_vonw3")
+
+[node name="Border5" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.9999941, 0.003492367, 0.0004888871, 0.0034906145, 0.9999934, -0.003491553, -0.000501074, -0.0034898035, -0.9999995, 79.89223, 4.189499, -72.357475)
+use_collision = true
+flip_faces = true
+size = Vector3(-1, 5.958557, 135.64153)
+material = SubResource("StandardMaterial3D_vonw3")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9265594, 3.1407185, -15.087661)
+size = Vector3(1, 7.826172, 10)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8155785, 3.0340028, -15.184144)
+size = Vector3(1, 7.826172, 10)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.880152, 2.8538237, -8.269453)
+size = Vector3(1, 7.826172, 10)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.032405112, 0, 0.9994748, 0, 1, 0, -0.9994748, 0, -0.032405112, 8.291286, 3.0532408, -20.433393)
+size = Vector3(1, 7.826172, 10)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.3711392e-08, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, -4.3711392e-08, -13.3585825, 3.117587, -19.839489)
+size = Vector3(1, 7.826172, 17.909668)
