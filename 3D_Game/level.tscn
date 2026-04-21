@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dmjh40cyt4mlx"]
+[gd_scene format=3 uid="uid://dmjh40cyt4mlx"]
 
 [ext_resource type="PackedScene" uid="uid://cleaqj3ujgtnn" path="res://player.tscn" id="1_u52ul"]
 [ext_resource type="Texture2D" uid="uid://darfiquva05y0" path="res://FOXTEX COMPLETE/Textures/wp14397465-escape-the-backrooms-wallpapers.png" id="2_0b4ue"]
@@ -42,26 +42,26 @@ uv1_scale = Vector3(5, 5, 5)
 ambient_light_energy = 0.05
 fog_density = 0.09
 
-[node name="Level" type="Node3D"]
+[node name="Level" type="Node3D" unique_id=49039936]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.7683716e-07, 0)
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=875467938]
 navigation_mesh = SubResource("NavigationMesh_f2txt")
 
-[node name="Floor" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="Floor" type="CSGBox3D" parent="NavigationRegion3D" unique_id=778175447]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0087714195, 1.0000005, 0.00492239)
 use_collision = true
 size = Vector3(10, 0, 10)
 material = SubResource("StandardMaterial3D_u52ul")
 
-[node name="LeftWall" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="LeftWall" type="CSGBox3D" parent="NavigationRegion3D" unique_id=831709243]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 3.1043339, 0.5)
 use_collision = true
 flip_faces = true
 size = Vector3(-1, 7, 9)
 material = SubResource("StandardMaterial3D_1ainy")
 
-[node name="RightWall" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="RightWall" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1240546656]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 3.1030884, 0)
 material_override = SubResource("StandardMaterial3D_n6hdu")
 use_collision = true
@@ -69,254 +69,268 @@ flip_faces = true
 size = Vector3(-1, 7, 9)
 material = SubResource("StandardMaterial3D_km5ld")
 
-[node name="BackWall" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="BackWall" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1592609416]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.14414644, 3.1030884, 4.8425837)
 use_collision = true
 flip_faces = true
 size = Vector3(-1, 7, 10.658203)
 material = SubResource("StandardMaterial3D_oi3di")
 
-[node name="Floor2" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="Floor2" type="CSGBox3D" parent="NavigationRegion3D" unique_id=2085588345]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.96154, 0.98172545, -68.60577)
 use_collision = true
 size = Vector3(195.51186, 0, 129.26857)
 material = SubResource("StandardMaterial3D_i2t4f")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D" unique_id=600357585]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 249.27924, 49.175674, -64.64153)
 size = Vector3(231.45856, 1, 140.00317)
 
-[node name="Border2" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="Border2" type="CSGBox3D" parent="NavigationRegion3D" unique_id=806597384]
 transform = Transform3D(9.094795e-06, 0.003490645, 0.999994, -8.300907e-09, 0.99999404, -0.003490643, -1.0000002, 2.362835e-08, 9.094766e-06, -16.909447, 3.438488, -133.33084)
 use_collision = true
 flip_faces = true
 size = Vector3(-1, 6.178833, 199.11516)
 material = SubResource("StandardMaterial3D_vonw3")
 
-[node name="Border3" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="Border3" type="CSGBox3D" parent="NavigationRegion3D" unique_id=749799751]
 transform = Transform3D(-1.0000002, 1.1059456e-08, 6.1797564e-06, -1.0826625e-08, 0.99999404, -0.0034906468, -6.1797564e-06, -0.0034906468, -0.9999941, -115.8576, 3.558123, -68.903824)
 use_collision = true
 flip_faces = true
 size = Vector3(-1, 7, 135.87924)
 material = SubResource("StandardMaterial3D_vonw3")
 
-[node name="CSGBox3D37" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D37" type="CSGBox3D" parent="NavigationRegion3D" unique_id=571653290]
 transform = Transform3D(0.00025054067, 0.0034906461, 0.99999404, -1.0847328e-08, 0.999994, -0.0034906461, -1.0000001, 8.639763e-07, 0.00025053322, 42.9403, 3.382476, -3.911868)
 use_collision = true
 flip_faces = true
 size = Vector3(-1, 5.958557, 76.01726)
 material = SubResource("StandardMaterial3D_vonw3")
 
-[node name="CSGBox3D38" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D38" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1463822145]
 transform = Transform3D(-0.9999941, 0.003492367, 0.00048888713, 0.0034991493, 0.99989146, 0.014694342, -0.00043751328, 0.0146959815, -0.99989766, 80.02724, 4.1391964, -70.93544)
 use_collision = true
 flip_faces = true
 size = Vector3(-1, 5.958557, 135.64153)
 material = SubResource("StandardMaterial3D_vonw3")
 
-[node name="CSGBox3D39" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D39" type="CSGBox3D" parent="NavigationRegion3D" unique_id=989362468]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9265594, 3.1407185, -16.58522)
 use_collision = true
 size = Vector3(1, 7.826172, 12.995117)
 
-[node name="CSGBox3D40" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D40" type="CSGBox3D" parent="NavigationRegion3D" unique_id=768276425]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8155785, 3.0340028, -16.300354)
 use_collision = true
 size = Vector3(1, 7.826172, 12.232422)
 
-[node name="CSGBox3D41" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D41" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1821526743]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.35967, 3.0340028, -10.515447)
 use_collision = true
 size = Vector3(1, 7.826172, 13.716797)
 
-[node name="CSGBox3D13" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D13" type="CSGBox3D" parent="NavigationRegion3D" unique_id=916725405]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.35967, 3.0340028, -19.007145)
 use_collision = true
 size = Vector3(1, 7.826172, 16.700195)
 
-[node name="CSGBox3D14" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D14" type="CSGBox3D" parent="NavigationRegion3D" unique_id=830717642]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.359673, 3.0340028, -9.657047)
 use_collision = true
 size = Vector3(1, 7.826172, 12)
 
-[node name="CSGBox3D29" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D29" type="CSGBox3D" parent="NavigationRegion3D" unique_id=17773983]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.359673, 3.0340028, -13.657047)
 use_collision = true
 size = Vector3(1, 7.826172, 12)
 
-[node name="CSGBox3D15" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D15" type="CSGBox3D" parent="NavigationRegion3D" unique_id=2066148481]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 36.292046, 3.0340028, -9.657047)
 use_collision = true
 size = Vector3(1, 7.826172, 16.135254)
 
-[node name="CSGBox3D16" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D16" type="CSGBox3D" parent="NavigationRegion3D" unique_id=557302670]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 53.359673, 3.0340028, -9.657047)
 use_collision = true
 size = Vector3(1, 7.826172, 12)
 
-[node name="CSGBox3D26" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D26" type="CSGBox3D" parent="NavigationRegion3D" unique_id=334478308]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.359673, 3.0340028, -8.157047)
 use_collision = true
 size = Vector3(1, 7.826172, 9)
 
-[node name="CSGBox3D27" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D27" type="CSGBox3D" parent="NavigationRegion3D" unique_id=177376957]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.35967, 3.0340028, -9.657047)
 use_collision = true
 size = Vector3(1, 7.826172, 12)
 
-[node name="CSGBox3D28" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D28" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1313642447]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.35967, 3.0340028, -13.58234)
 use_collision = true
 size = Vector3(1, 7.826172, 13)
 
-[node name="CSGBox3D30" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D30" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1356835892]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 70.03936, 3.0340028, -14.157047)
 use_collision = true
 size = Vector3(1, 7.826172, 10.359375)
 
-[node name="CSGBox3D31" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D31" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1794862897]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 77.32077, 3.0340028, -9.804935)
 use_collision = true
 size = Vector3(1, 7.826172, 7.0336914)
 
-[node name="CSGBox3D17" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D17" type="CSGBox3D" parent="NavigationRegion3D" unique_id=106712762]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 53.359673, 3.0340028, -16.657047)
 use_collision = true
 size = Vector3(1, 7.826172, 12)
 
-[node name="CSGBox3D18" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D18" type="CSGBox3D" parent="NavigationRegion3D" unique_id=2134903320]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.359673, 3.0340028, -22.657047)
 use_collision = true
 size = Vector3(1, 7.826172, 12)
 
-[node name="CSGBox3D20" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D20" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1408478126]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.359673, 3.0340028, -77.37085)
 use_collision = true
 size = Vector3(1, 7.826172, 19)
 
-[node name="CSGBox3D21" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D21" type="CSGBox3D" parent="NavigationRegion3D" unique_id=862740871]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.553062, 3.0340028, -70.13788)
 use_collision = true
 size = Vector3(1, 7.826172, 33.465942)
 
-[node name="CSGBox3D22" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D22" type="CSGBox3D" parent="NavigationRegion3D" unique_id=807656511]
 transform = Transform3D(-0.013822516, 0, -0.99990445, 0, 1, 0, 0.99990445, 0, -0.013822516, 37.94675, 3.0340028, -85.88927)
 use_collision = true
 size = Vector3(1, 7.826172, 20)
 
-[node name="CSGBox3D19" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D19" type="CSGBox3D" parent="NavigationRegion3D" unique_id=843408708]
 transform = Transform3D(-0.00925006, 0, -0.99995726, 0, 1, 0, 0.99995726, 0, -0.00925006, 49.706345, 2.9962182, -23.678701)
 use_collision = true
 size = Vector3(1, 7.826172, 23)
-metadata/_edit_group_ = true
 
-[node name="CSGBox3D23" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D23" type="CSGBox3D" parent="NavigationRegion3D" unique_id=110860197]
 transform = Transform3D(-0.00925006, 0, -0.99995726, 0, 1, 0, 0.99995726, 0, -0.00925006, 45.850124, 2.9962182, -32.71437)
 use_collision = true
 size = Vector3(1, 7.826172, 15.287231)
 metadata/_edit_group_ = true
 
-[node name="CSGBox3D32" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D32" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1802667559]
 transform = Transform3D(-0.00925006, 0, -0.99995726, 0, 1, 0, 0.99995726, 0, -0.00925006, 22.643587, 2.9962182, -30.132591)
 use_collision = true
 size = Vector3(1, 7.826172, 16.985413)
 metadata/_edit_group_ = true
 
-[node name="CSGBox3D33" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D33" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1414197614]
 transform = Transform3D(-1.0000001, 0, -8.7422784e-08, 0, 1, 0, 8.7422784e-08, 0, -1.0000001, 19.254843, 2.9962182, -32.600117)
 use_collision = true
 size = Vector3(1, 7.826172, 12)
 metadata/_edit_group_ = true
 
-[node name="CSGBox3D35" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D35" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1781073000]
 transform = Transform3D(-1.0000001, 0, -8.7422784e-08, 0, 1, 0, 8.7422784e-08, 0, -1.0000001, 10.254843, 2.9962182, -39.600117)
 use_collision = true
 size = Vector3(1, 7.826172, 12)
 metadata/_edit_group_ = true
 
-[node name="CSGBox3D36" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D36" type="CSGBox3D" parent="NavigationRegion3D" unique_id=872125187]
 transform = Transform3D(-0.00015234276, -0.017451739, 0.9998477, 0.008725207, 0.99980956, 0.017452406, -0.99996203, 0.008726535, -4.370473e-08, 8.991851, 2.9962182, -45.664673)
 use_collision = true
 size = Vector3(1, 7.826172, 12)
 metadata/_edit_group_ = true
 
-[node name="CSGBox3D34" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D34" type="CSGBox3D" parent="NavigationRegion3D" unique_id=894975964]
 transform = Transform3D(-1.0000001, 0, -8.7422784e-08, 0, 1, 0, 8.7422784e-08, 0, -1.0000001, -1.2555237, 2.9962182, -29.508987)
 use_collision = true
 size = Vector3(1, 7.826172, 12)
 metadata/_edit_group_ = true
 
-[node name="CSGBox3D25" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D25" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1245686681]
 transform = Transform3D(-0.00925006, 0, -0.99995726, 0, 1, 0, 0.99995726, 0, -0.00925006, 71.85013, 2.9962182, -23.71437)
 use_collision = true
 size = Vector3(1, 7.826172, 15.287231)
 metadata/_edit_group_ = true
 
-[node name="CSGBox3D24" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D24" type="CSGBox3D" parent="NavigationRegion3D" unique_id=924270915]
 transform = Transform3D(-0.00925006, 0, -0.99995726, 0, 1, 0, 0.99995726, 0, -0.00925006, 24.920364, 2.9962182, -22.483915)
 use_collision = true
 size = Vector3(1, 7.826172, 15.287231)
 metadata/_edit_group_ = true
 
-[node name="CSGBox3D42" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D42" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1242561927]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.880152, 2.8538237, -8.269453)
 use_collision = true
 size = Vector3(1, 7.826172, 10)
 
-[node name="CSGBox3D43" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D43" type="CSGBox3D" parent="NavigationRegion3D" unique_id=151757364]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.291286, 3.0532408, -20.433393)
 use_collision = true
 size = Vector3(1, 7.826172, 10)
 
-[node name="CSGBox3D44" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D44" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1163070311]
 transform = Transform3D(-4.3711392e-08, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, -4.3711392e-08, -21.40375, 3.117587, -19.839489)
 use_collision = true
 size = Vector3(1, 7.826172, 34)
 
-[node name="CSGBox3D45" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D45" type="CSGBox3D" parent="NavigationRegion3D" unique_id=451020149]
 transform = Transform3D(-1.0000001, 0, -8.7422784e-08, 0, 1, 0, 8.7422784e-08, 0, -1.0000001, -20.42985, 3.117587, -27.593792)
 use_collision = true
 size = Vector3(1, 7.826172, 34)
 
-[node name="CSGBox3D12" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D50" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1863956673]
+transform = Transform3D(-1.0000001, 0, -8.7422784e-08, 0, 1, 0, 8.7422784e-08, 0, -1.0000001, -34.42985, 3.117587, -46.593792)
+use_collision = true
+size = Vector3(1, 7.826172, 34)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="NavigationRegion3D" unique_id=7073944]
 transform = Transform3D(-4.37114e-08, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, -4.37114e-08, -32.429848, 3.117587, -29.593792)
 use_collision = true
 size = Vector3(1, 7.826172, 24)
 
-[node name="CSGBox3D46" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D48" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1327081367]
+transform = Transform3D(-4.37114e-08, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, -4.37114e-08, -53.429848, 12.117588, -18.593792)
+use_collision = true
+size = Vector3(1, 7.826172, 24)
+
+[node name="CSGBox3D49" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1772316145]
+transform = Transform3D(-1.0000001, 0, -8.742279e-08, 0, 1, 0, 8.742279e-08, 0, -1.0000001, -54.429848, 1.1175876, -33.593792)
+use_collision = true
+size = Vector3(1, 7.826172, 24)
+
+[node name="CSGBox3D46" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1395581985]
 transform = Transform3D(-4.37114e-08, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, -4.37114e-08, -1.9298501, 3.117587, -29.593796)
 use_collision = true
 size = Vector3(1, 7.826172, 27)
 
-[node name="CSGBox3D47" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D47" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1838000175]
 transform = Transform3D(1.0000001, 0, 1.0658141e-14, 0, 1, 0, -1.0658141e-14, 0, 1.0000001, -11.42985, 3.117587, -32.110336)
 use_collision = true
 size = Vector3(1, 7.826172, 16.966919)
 
-[node name="CSGBox3D11" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D11" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1654601039]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.760303, 3.7076473, -19.538906)
 use_collision = true
 size = Vector3(1, 7.826172, 10)
 
-[node name="Border1" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="Border1" type="CSGBox3D" parent="NavigationRegion3D" unique_id=638993307]
 transform = Transform3D(-3.0898825e-06, -0.0017453257, -0.99999857, 0.0017453259, 0.999997, -0.0017453285, 0.99999857, -0.0017453287, -4.3711324e-08, -60.227055, 3.483756, -3.674746)
 use_collision = true
 flip_faces = true
 size = Vector3(-1, 6.178833, 111.4787)
 material = SubResource("StandardMaterial3D_vonw3")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=466643829]
 environment = SubResource("Environment_f2txt")
 
-[node name="Player" parent="." instance=ExtResource("1_u52ul")]
+[node name="Player" parent="." unique_id=1261958617 instance=ExtResource("1_u52ul")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 3.130309)
 
-[node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=1304409299]
 occluder = ExtResource("2_vonw3")
 
-[node name="Node" type="Node" parent="."]
+[node name="Node" type="Node" parent="." unique_id=2114941056]
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=702728505]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3433456, 0)
 light_color = Color(0.9999986, 0.99825305, 0.7674887, 1)
 light_energy = 0.5
