@@ -227,7 +227,7 @@ size = Vector3(1, 7.826172, 12)
 metadata/_edit_group_ = true
 
 [node name="CSGBox3D36" type="CSGBox3D" parent="." unique_id=325459278]
-transform = Transform3D(0.08419948, 0, 0.99644905, 0, 1, 0, -0.99644905, 0, 0.08419948, 8.991851, 2.9962182, -45.664673)
+transform = Transform3D(-0.00015234276, -0.017451739, 0.9998477, 0.008725207, 0.99980956, 0.017452406, -0.99996203, 0.008726535, -4.370473e-08, 8.991851, 2.9962182, -45.664673)
 size = Vector3(1, 7.826172, 12)
 metadata/_edit_group_ = true
 
