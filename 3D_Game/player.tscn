@@ -13,6 +13,7 @@ axis_lock_angular_z = true
 script = ExtResource("1_4flbx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("CapsuleMesh_sh265")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
@@ -23,4 +24,4 @@ shape = SubResource("CapsuleShape3D_4flbx")
 [node name="Pitch" type="Node3D" parent="Pivot"]
 
 [node name="Camera3D" type="Camera3D" parent="Pivot/Pitch"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9696344, -0.45765764)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9696344, 0.0014868379)

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cs2nhhpgleqb"]
+
+[node name="ControlMenu" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 10.0
+offset_top = 18.0
+offset_right = 1904.0
+offset_bottom = 1072.0
+text = "WASD
+
+AND
+
+ARROW KEYS 
+
+SHIFT TO SPRINT"
