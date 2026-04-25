@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://gjfbbbhpqqmb"]
+
+[ext_resource type="Script" uid="uid://pxdnwpvc63g2" path="res://door/area_3d.gd" id="1_odlxt"]
+[ext_resource type="PackedScene" uid="uid://27ovgmrwd4jj" path="res://Assets/Doors and Props (extract/Doors and Props/Doors/Models/DoorEntrance_1.fbx" id="1_vikjo"]
+
+[node name="ExitDoor" type="Node3D"]
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("1_odlxt")
+
+[node name="DoorEntrance_1" parent="Area3D" instance=ExtResource("1_vikjo")]
