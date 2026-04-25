@@ -41,6 +41,7 @@ uv1_scale = Vector3(10, 10, 10)
 [sub_resource type="Environment" id="Environment_f2txt"]
 ambient_light_energy = 0.05
 glow_enabled = true
+fog_enabled = true
 fog_density = 0.019
 
 [node name="Level" type="Node3D"]
@@ -86,7 +87,7 @@ size = Vector3(195.51186, 0, 129.26857)
 material = SubResource("StandardMaterial3D_i2t4f")
 
 [node name="cieling" type="CSGBox3D" parent="NavigationRegion3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.720764, 48.301273, -64.64153)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 179.27924, 48.301273, -64.64153)
 size = Vector3(231.45856, 1, 140.00317)
 material = SubResource("StandardMaterial3D_h6smj")
 
@@ -1036,7 +1037,11 @@ size = Vector3(-1, 6.178833, 111.4787)
 material = ExtResource("4_2orkt")
 
 [node name="Enemy" parent="NavigationRegion3D" instance=ExtResource("6_1ainy")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1.059578, -118.506645)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 22, 1.059578, -118.506645)
+player_path = NodePath("../../Player")
+
+[node name="Enemy2" parent="NavigationRegion3D" instance=ExtResource("6_1ainy")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -70, 1.059578, -120.506645)
 player_path = NodePath("../../Player")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

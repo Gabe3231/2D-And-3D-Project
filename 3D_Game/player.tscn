@@ -25,3 +25,18 @@ shape = SubResource("CapsuleShape3D_4flbx")
 
 [node name="Camera3D" type="Camera3D" parent="Pivot/Pitch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9696344, 0.0014868379)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StaminaBar" type="ProgressBar" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1282.0
+offset_top = 28.0
+offset_right = 1864.0
+offset_bottom = 69.0
