@@ -1,11 +1,63 @@
-[gd_scene load_steps=3 format=3 uid="uid://gjfbbbhpqqmb"]
+[gd_scene load_steps=5 format=3 uid="uid://gjfbbbhpqqmb"]
 
-[ext_resource type="Script" uid="uid://pxdnwpvc63g2" path="res://door/area_3d.gd" id="1_odlxt"]
+[ext_resource type="Script" uid="uid://biterxoyjt1ij" path="res://door/exit_door.gd" id="1_5je3c"]
 [ext_resource type="PackedScene" uid="uid://27ovgmrwd4jj" path="res://Assets/Doors and Props (extract/Doors and Props/Doors/Models/DoorEntrance_1.fbx" id="1_vikjo"]
+[ext_resource type="Material" uid="uid://pot1cjr62wt4" path="res://textures/wall/wall_matrial.tres" id="2_odlxt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5je3c"]
+size = Vector3(5, 4, 3)
 
 [node name="ExitDoor" type="Node3D"]
+script = ExtResource("1_5je3c")
 
-[node name="Area3D" type="Area3D" parent="."]
-script = ExtResource("1_odlxt")
+[node name="DoorEntrance_1" parent="." instance=ExtResource("1_vikjo")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
-[node name="DoorEntrance_1" parent="Area3D" instance=ExtResource("1_vikjo")]
+[node name="DoorEntrance_1" parent="DoorEntrance_1" index="0"]
+surface_material_override/0 = ExtResource("2_odlxt")
+
+[node name="DoorEntrance_015" parent="DoorEntrance_1/DoorEntrance_1" index="0"]
+surface_material_override/0 = ExtResource("2_odlxt")
+
+[node name="DoorEntrance_016" parent="DoorEntrance_1/DoorEntrance_1" index="1"]
+surface_material_override/0 = ExtResource("2_odlxt")
+
+[node name="DoorEntrance_019" parent="DoorEntrance_1/DoorEntrance_1" index="2"]
+surface_material_override/0 = ExtResource("2_odlxt")
+
+[node name="DoorEntrance_021" parent="DoorEntrance_1/DoorEntrance_1/DoorEntrance_019" index="0"]
+surface_material_override/0 = ExtResource("2_odlxt")
+
+[node name="DoorEntrance_003" parent="DoorEntrance_1/DoorEntrance_1/DoorEntrance_019" index="1"]
+surface_material_override/0 = ExtResource("2_odlxt")
+
+[node name="DoorEntrance_022" parent="DoorEntrance_1/DoorEntrance_1" index="3"]
+surface_material_override/0 = ExtResource("2_odlxt")
+
+[node name="DoorEntrance_001" parent="DoorEntrance_1/DoorEntrance_1" index="4"]
+surface_material_override/0 = ExtResource("2_odlxt")
+
+[node name="DoorEntrance_002" parent="DoorEntrance_1/DoorEntrance_1" index="5"]
+surface_material_override/0 = ExtResource("2_odlxt")
+
+[node name="Area3D" type="Area3D" parent="DoorEntrance_1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorEntrance_1/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1)
+shape = SubResource("BoxShape3D_5je3c")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FadeReact" type="ColorRect" parent="CanvasLayer"]
+modulate = Color(1.6530219e-05, 1.6530223e-05, 1.6530223e-05, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[connection signal="body_entered" from="DoorEntrance_1/Area3D" to="." method="_on_area_3d_body_entered"]
+
+[editable path="DoorEntrance_1"]

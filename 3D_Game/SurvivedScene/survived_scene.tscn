@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://b86outokntodd"]
+
+[ext_resource type="Script" uid="uid://be8hy55o5225q" path="res://SurvivedScene/survived_scene.gd" id="1_kvk57"]
+
+[node name="SurvivedScene" type="Node2D"]
+script = ExtResource("1_kvk57")
+
+[node name="Manager" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayAgain" type="Button" parent="Manager"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 0
+offset_left = 370.0
+offset_top = 790.0
+offset_right = 743.0
+offset_bottom = 953.0
+text = "Retry
+"
+
+[node name="Exit" type="Button" parent="Manager"]
+layout_mode = 0
+offset_left = 1216.0
+offset_top = 774.0
+offset_right = 1592.0
+offset_bottom = 946.0
+text = "Exit
+"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Manager"]
+z_index = -2
+layout_mode = 0
+offset_left = 10.0
+offset_right = 1926.0
+offset_bottom = 1084.0
+mouse_filter = 2
+
+[connection signal="pressed" from="Manager/PlayAgain" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="Manager/Exit" to="." method="_on_exit_pressed"]

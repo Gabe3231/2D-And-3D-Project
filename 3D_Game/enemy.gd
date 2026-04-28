@@ -7,8 +7,6 @@ const attackRange := 2.0
 const chaseRange := 20.0
 # do not chnage this need to make wander distance big or else they won't move much
 const wanderRadius := 30.0
-# so they keep trackoing the player even if they go behind a wall
-const chaseMemoryTime := 6.0
 const gravity := 9.8
 
 # so enemy tracks player
@@ -18,10 +16,6 @@ var player: Node3D = null
 
 var wanderTarget: Vector3 = Vector3.ZERO
 var wanderTimer := 0.0
-
-# how long enemy chases needed for chase memory
-var chaseTimer := 0.0
-var lastSeenPos: Vector3 = Vector3.ZERO
 
 # nav so enemy knows where to move
 @onready var navAgent: NavigationAgent3D = $NavigationAgent3D
@@ -42,6 +36,7 @@ func _ready() -> void:
 
 	if playerPath != NodePath(""):
 		player = get_node(playerPath)
+
 	animTree.active = true
 	growlTimer.timeout.connect(onGrowlTimerTimeout)
 	setNextGrowlTime()
@@ -51,6 +46,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+	else:
+		velocity.y = 0
 
 	if player == null:
 		wander(delta)
@@ -60,18 +57,10 @@ func _physics_process(delta: float) -> void:
 	var playerDist := global_position.distance_to(player.global_position)
 	var seesPlayer := playerDist <= chaseRange and canSeePlayer()
 
-	if seesPlayer:
-		chaseTimer = chaseMemoryTime
-		lastSeenPos = player.global_position
-	else:
-		chaseTimer -= delta
-		
 	if playerDist <= attackRange and seesPlayer:
 		attackPlayer()
 	elif seesPlayer:
 		chasePlayer(player.global_position)
-	elif chaseTimer > 0:
-		chasePlayer(lastSeenPos)
 	else:
 		wander(delta)
 
@@ -100,7 +89,7 @@ func chasePlayer(targetPos: Vector3) -> void:
 	look_at(global_position + dir, Vector3.UP)
 
 	playAnim("running")
-	stopFootsteps()
+	startFootsteps()
 
 	if growlSound.playing:
 		growlSound.stop()
@@ -115,6 +104,9 @@ func attackPlayer() -> void:
 
 	if growlSound.playing:
 		growlSound.stop()
+
+	if player and player.has_method("enemy_attack_effect"):
+		player.enemy_attack_effect()
 
 
 func wander(delta: float) -> void:
@@ -138,6 +130,7 @@ func wander(delta: float) -> void:
 	if dir.length() < 0.1:
 		velocity.x = 0
 		velocity.z = 0
+		stopFootsteps()
 		return
 
 	dir = dir.normalized()
@@ -162,6 +155,7 @@ func pickNewWanderTarget() -> void:
 	navAgent.target_position = wanderTarget
 	wanderTimer = randf_range(1.0, 3.0)
 
+
 # Got this off a youtube vid and works for now
 # kinda confusing
 # most importnat func for enemy chase mechanics
@@ -179,26 +173,37 @@ func canSeePlayer() -> bool:
 		global_position + Vector3.UP,
 		player.global_position + Vector3.UP
 	)
+
 	# excludes enemy and this will cause issue with detection
-	query.exclude = [self]
+	query.exclude = [self.get_rid()]
+
 	var result := spaceState.intersect_ray(query)
+
 	# checks and if no collsion mean no player so null so no chase
 	if result.is_empty():
 		return false
+
+	var hit = result.collider
+
 	# returns if player visable or not
-	return result.collider == player
+	# FIX: also check if ray hit a child of the player like collision
+	return hit == player or player.is_ancestor_of(hit)
+
 
 # basic audio functions
 func startFootsteps():
 	if not footstepSound.playing:
 		footstepSound.play()
 
+
 func stopFootsteps():
 	if footstepSound.playing:
 		footstepSound.stop()
 
+
 func playAnim(animName: String):
 	animState.travel(animName)
+
 
 func onGrowlTimerTimeout():
 	if player and global_position.distance_to(player.global_position) <= chaseRange:
@@ -210,6 +215,7 @@ func onGrowlTimerTimeout():
 		growlSound.play()
 
 	setNextGrowlTime()
+
 
 # for growl timer makes noise between 4 and 10 secs
 func setNextGrowlTime():

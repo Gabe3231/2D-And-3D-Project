@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://hmkh3hnipakb"]
+
+[ext_resource type="Script" uid="uid://b7goxpot1ay4g" path="res://storyScene/story_start_scene.gd" id="1_3ll1b"]
+
+[node name="StoryStartScene" type="Node2D"]
+script = ExtResource("1_3ll1b")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+offset_right = 1916.0
+offset_bottom = 1078.0
+text = "Footage was recovered from a camera lost the subliminal space. It is unknown the wherabouts of this surviovr or their status. 
+
+This footage serves as training for any perssonel enerting the maze and its subsequent sections. 
+
+This footage servers as a warning for any who enter as there lurks creatures within the maze."
+
+[node name="Fade" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Timer" type="Timer" parent="."]

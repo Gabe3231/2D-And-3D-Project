@@ -7,25 +7,56 @@ const SENSITIVITY := 0.009
 
 const MAX_STAMINA := 100.0
 const STAMINA_DRAIN_RATE := 25.0
-# 100 stamina / 10 seconds = 10 per second
 const STAMINA_RECOVER_RATE := 10.0
 
 var stamina := MAX_STAMINA
 var can_sprint := true
+var is_dead := false
 
 @onready var pivot: Node3D = $Pivot
 @onready var pitch: Node3D = $Pivot/Pitch
 @onready var camera: Camera3D = $Pivot/Pitch/Camera3D
 @onready var stamina_bar: ProgressBar = $"CanvasLayer/Control/StaminaBar"
+@onready var death_fade: ColorRect = $CanvasLayer/DeathFade
 
 func _ready() -> void:
+	add_to_group("player")
+
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+	death_fade.visible = true
+	death_fade.color = Color.BLACK
+	death_fade.modulate.a = 0.0
+	death_fade.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 	stamina_bar.max_value = MAX_STAMINA
 	stamina_bar.value = stamina
 
+func enemy_attack_effect() -> void:
+	if is_dead:
+		return
+
+	print("PLAYER GOT ATTACKED")
+
+	is_dead = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+	death_fade.visible = true
+	death_fade.color = Color.BLACK
+	death_fade.modulate.a = 0.0
+
+	var tween := create_tween()
+	tween.tween_property(death_fade, "modulate:a", 1.0, 1.5)
+	tween.finished.connect(change_to_death_screen)
+
+func change_to_death_screen() -> void:
+	print("CHANGING TO DEATH SCREEN")
+	get_tree().change_scene_to_file("res://deathScreen/death_screen.tscn")
 
 func _unhandled_input(event: InputEvent) -> void:
+	if is_dead:
+		return
+
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		pivot.rotate_y(-event.relative.x * SENSITIVITY)
 		pitch.rotate_x(-event.relative.y * SENSITIVITY)
@@ -37,8 +68,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-
 func _physics_process(delta: float) -> void:
+	if is_dead:
+		velocity.x = 0.0
+		velocity.z = 0.0
+		move_and_slide()
+		return
+
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
