@@ -18,6 +18,10 @@ var is_dead := false
 @onready var camera: Camera3D = $Pivot/Pitch/Camera3D
 @onready var stamina_bar: ProgressBar = $"CanvasLayer/Control/StaminaBar"
 @onready var death_fade: ColorRect = $CanvasLayer/DeathFade
+@onready var flashlight: SpotLight3D = $Pivot/Pitch/Camera3D/flashlight
+@onready var scream: AudioStreamPlayer3D = $scream
+
+var flashlight_on := false
 
 func _ready() -> void:
 	add_to_group("player")
@@ -31,6 +35,7 @@ func _ready() -> void:
 
 	stamina_bar.max_value = MAX_STAMINA
 	stamina_bar.value = stamina
+	flashlight.visible = flashlight_on
 
 func enemy_attack_effect() -> void:
 	if is_dead:
@@ -39,6 +44,7 @@ func enemy_attack_effect() -> void:
 	print("PLAYER GOT ATTACKED")
 
 	is_dead = true
+	scream.play()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 	death_fade.visible = true
@@ -67,6 +73,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	if event is InputEventMouseButton and event.pressed:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		
+	if event.is_action_pressed("flashlight"):
+		flashlight_on = !flashlight_on
+		flashlight.visible = flashlight_on
 
 func _physics_process(delta: float) -> void:
 	if is_dead:
