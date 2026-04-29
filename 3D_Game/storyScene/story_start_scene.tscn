@@ -14,7 +14,9 @@ text = "Footage was recovered from a camera lost the subliminal space. It is unk
 
 This footage serves as training for any perssonel enerting the maze and its subsequent sections. 
 
-This footage servers as a warning for any who enter as there lurks creatures within the maze."
+This footage servers as a warning for any who enter as there lurks creatures within the maze.
+
+Use this footage to navigate the maze but be wary at all times."
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
