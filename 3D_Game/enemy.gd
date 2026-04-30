@@ -1,8 +1,9 @@
 extends CharacterBody3D
 
 # all importnat and demonstartes how enemy behaves
-const walkSpeed := 3.0
+const walkSpeed := 4.0
 const runSpeed := 6.0
+#maybe mondify
 const attackRange := 2.0
 const chaseRange := 20.0
 # do not chnage this need to make wander distance big or else they won't move much
@@ -12,6 +13,7 @@ const gravity := 9.8
 # so enemy tracks player
 @export var playerPath: NodePath
 
+# we set player path of enemy to the player
 var player: Node3D = null
 
 var wanderTarget: Vector3 = Vector3.ZERO
@@ -31,43 +33,49 @@ var wanderTimer := 0.0
 @onready var animState = animTree.get("parameters/playback")
 
 
-func _ready() -> void:
+func _ready():
 	randomize()
 
 	if playerPath != NodePath(""):
 		player = get_node(playerPath)
-
+	
+	# when enemy initilizes in scene begin animation and growl timer
+	# also begin wander
 	animTree.active = true
 	growlTimer.timeout.connect(onGrowlTimerTimeout)
 	setNextGrowlTime()
 	pickNewWanderTarget()
 
-
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float):
+	# inpuing gravity
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	else:
 		velocity.y = 0
-
+	
+	#if player not in sight wander
 	if player == null:
 		wander(delta)
 		move_and_slide()
 		return
-
+	
+	#if player close and can see player then chase
+	# so we calculate player distance and enemy vision which is player distance and chase range
 	var playerDist := global_position.distance_to(player.global_position)
 	var seesPlayer := playerDist <= chaseRange and canSeePlayer()
-
+	
+	# decision making of what to do based on player value like if can see or player null
 	if playerDist <= attackRange and seesPlayer:
 		attackPlayer()
 	elif seesPlayer:
 		chasePlayer(player.global_position)
 	else:
 		wander(delta)
-
+	#DO NOT DELETE
 	move_and_slide()
 
 
-func chasePlayer(targetPos: Vector3) -> void:
+func chasePlayer(targetPos: Vector3):
 	navAgent.target_position = targetPos
 
 	var nextPos := navAgent.get_next_path_position()
@@ -143,14 +151,12 @@ func wander(delta: float) -> void:
 	playAnim("walking")
 	startFootsteps()
 
-
-func pickNewWanderTarget() -> void:
-	var randomOffset := Vector3(
-		randf_range(-wanderRadius, wanderRadius),
-		0,
-		randf_range(-wanderRadius, wanderRadius)
-	)
-
+# Do not chnage this got from Youtube vid and works rn
+func pickNewWanderTarget():
+	var randomOffset := Vector3(randf_range(-wanderRadius, wanderRadius),0,randf_range(-wanderRadius, wanderRadius))
+	
+	# from what i understand we use the nav i input and enemy wanders
+	# though nav and stops and wanders again
 	wanderTarget = global_position + randomOffset
 	navAgent.target_position = wanderTarget
 	wanderTimer = randf_range(1.0, 3.0)
@@ -182,7 +188,8 @@ func canSeePlayer() -> bool:
 	# checks and if no collsion mean no player so null so no chase
 	if result.is_empty():
 		return false
-
+	
+	# importnat for detetction and player death
 	var hit = result.collider
 
 	# returns if player visable or not
@@ -206,11 +213,13 @@ func playAnim(animName: String):
 
 
 func onGrowlTimerTimeout():
+	# if chase stop growl
 	if player and global_position.distance_to(player.global_position) <= chaseRange:
 		setNextGrowlTime()
 		return
 
 	if not growlSound.playing:
+		# random growl time
 		growlSound.pitch_scale = randf_range(0.9, 1.1)
 		growlSound.play()
 
