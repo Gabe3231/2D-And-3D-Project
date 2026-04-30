@@ -915,12 +915,6 @@ use_collision = true
 size = Vector3(1, 7.826172, 24)
 material = ExtResource("4_2orkt")
 
-[node name="CSGBox3D48" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1152437057]
-transform = Transform3D(-4.37114e-08, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, -4.37114e-08, -53.429848, 12.117588, -16.593792)
-use_collision = true
-size = Vector3(1, 7.826172, 24)
-material = ExtResource("4_2orkt")
-
 [node name="CSGBox3D49" type="CSGBox3D" parent="NavigationRegion3D" unique_id=562628006]
 transform = Transform3D(-1.0000001, 0, -8.742279e-08, 0, 1, 0, 8.742279e-08, 0, -1.0000001, -54.429848, 1.1175876, -31.093792)
 use_collision = true
@@ -1054,6 +1048,26 @@ texture = ExtResource("10_h6smj")
 
 [node name="sign3" type="Sprite3D" parent="NavigationRegion3D" unique_id=799082245]
 transform = Transform3D(-0.073920004, 0, 0, 0, 0.094500005, 0, 0, 0, 0.063, -58.175045, 4.4089994, -44.982002)
+texture = ExtResource("10_h6smj")
+
+[node name="sign8" type="Sprite3D" parent="NavigationRegion3D" unique_id=742711000]
+transform = Transform3D(0.10348801, 0, 0, 0, 0.094500005, 0, 0, 0, 0.063, -44.100674, 4.4089994, -69.552)
+texture = ExtResource("10_h6smj")
+
+[node name="sign5" type="Sprite3D" parent="NavigationRegion3D" unique_id=1071701037]
+transform = Transform3D(-0.073920004, 0, -1.8626451e-09, 0, 0.094500005, 0, 0, 0, 0.06300001, -82.12513, 4.4089994, -88.767006)
+texture = ExtResource("10_h6smj")
+
+[node name="sign6" type="Sprite3D" parent="NavigationRegion3D" unique_id=1835735870]
+transform = Transform3D(0.096096, 0, -1.8626451e-09, 0, 0.094500005, 0, 0, 0, 0.06300001, -107.84929, 4.4089994, -94.94101)
+texture = ExtResource("10_h6smj")
+
+[node name="sign4" type="Sprite3D" parent="NavigationRegion3D" unique_id=658453980]
+transform = Transform3D(0.07392, 0, 3.7252903e-09, 0, 0.094500005, 0, 7.450581e-09, 0, -0.063, -108.69466, 4.5034995, -26.09753)
+texture = ExtResource("10_h6smj")
+
+[node name="sign7" type="Sprite3D" parent="NavigationRegion3D" unique_id=1964447210]
+transform = Transform3D(0.07140124, 0, 0.016305605, 0, 0.094500005, 0, 0.019131912, 0, -0.06085333, -95.7264, 4.4089994, -42.084003)
 texture = ExtResource("10_h6smj")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=374747481]
