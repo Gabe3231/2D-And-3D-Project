@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
 # all importnat and demonstartes how enemy behaves
-const walkSpeed := 4.0
-const runSpeed := 6.0
+const walkSpeed := 5.0
+const runSpeed := 7.0
 #maybe mondify
 const attackRange := 2.0
 const chaseRange := 20.0
@@ -35,7 +35,6 @@ var wanderTimer := 0.0
 
 func _ready():
 	randomize()
-
 	if playerPath != NodePath(""):
 		player = get_node(playerPath)
 	
@@ -74,80 +73,78 @@ func _physics_process(delta: float):
 	#DO NOT DELETE
 	move_and_slide()
 
-
+# pathfisning for enemy to target player
 func chasePlayer(targetPos: Vector3):
+	#calculates path
 	navAgent.target_position = targetPos
-
+	# direction for enemy path using nav
 	var nextPos := navAgent.get_next_path_position()
 	var dir := nextPos - global_position
 	dir.y = 0
-
+	# if player nearby move to player and stop movement so no weird cuts in animation
 	if dir.length() < 0.2:
 		velocity.x = 0
 		velocity.z = 0
 		playAnim("idle")
 		stopFootsteps()
 		return
-
+	#consistnt speed issue fix
 	dir = dir.normalized()
-
+	# chasing logic where start running
 	velocity.x = dir.x * runSpeed
 	velocity.z = dir.z * runSpeed
-
+	#so enemy looks at player and doesn't run with his back
 	look_at(global_position + dir, Vector3.UP)
-
 	playAnim("running")
 	startFootsteps()
-
+	#so he stops growling when chasing
 	if growlSound.playing:
 		growlSound.stop()
 
-
+# player attack logic
 func attackPlayer() -> void:
+	# enemy stops movment to attack
 	velocity.x = 0
 	velocity.z = 0
-
 	playAnim("Attack")
 	stopFootsteps()
-
+	# stop gorwl when attack too
 	if growlSound.playing:
 		growlSound.stop()
-
+	# attack affect so player dies
 	if player and player.has_method("enemy_attack_effect"):
 		player.enemy_attack_effect()
 
 
 func wander(delta: float) -> void:
+	# enemy nav check for wander detination using nav
 	if navAgent.is_navigation_finished():
 		wanderTimer -= delta
-
+		# to be idle animation enemy does not move
 		velocity.x = 0
 		velocity.z = 0
 		playAnim("idle")
 		stopFootsteps()
-
+		#wander new location
 		if wanderTimer <= 0:
 			pickNewWanderTarget()
-
 		return
-
+	# next walking position using nav
 	var nextPos := navAgent.get_next_path_position()
 	var dir := nextPos - global_position
 	dir.y = 0
-
+	# stops when reach wander point
 	if dir.length() < 0.1:
 		velocity.x = 0
 		velocity.z = 0
 		stopFootsteps()
 		return
-
+	#move to next point using physics
 	dir = dir.normalized()
-
 	velocity.x = dir.x * walkSpeed
 	velocity.z = dir.z * walkSpeed
-
+	# looks direction its walking
 	look_at(global_position + dir, Vector3.UP)
-
 	playAnim("walking")
 	startFootsteps()
 
@@ -175,6 +172,8 @@ func canSeePlayer() -> bool:
 	var spaceState := get_world_3d().direct_space_state
 	
 	# ray connects enemy to player and the head position
+	# kinda hard to explain var query but creates line of sight (kinda like a laser)
+	# checks whats in between like wall and aims at player head
 	var query := PhysicsRayQueryParameters3D.create(
 		global_position + Vector3.UP,
 		player.global_position + Vector3.UP

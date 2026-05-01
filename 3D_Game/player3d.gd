@@ -1,9 +1,9 @@
 extends CharacterBody3D
 
-const WALK_SPEED := 7.0
-const SPRINT_SPEED := 12.0
+const WALK_SPEED := 5.0
+const SPRINT_SPEED := 9.0
 const JUMP_VELOCITY := 4.5
-const SENSITIVITY := 0.009
+const SENSITIVITY := 0.003
 
 const MAX_STAMINA := 100.0
 const STAMINA_DRAIN_RATE := 25.0
