@@ -1,32 +1,40 @@
 extends Node
 
-@export var game_scene_path := "res://level.tscn"
-@export var story_time := 5.0
-@export var fade_time := 1.5
+#next level
+@export var gameScenePath := "res://level.tscn"
 
-@onready var fade_rect: ColorRect = $CanvasLayer/Fade
+# time before switch
+@export var storyTime := 5.0
+@export var fadeTime := 1.5
+@onready var fadeRect: ColorRect = $CanvasLayer/Fade
 @onready var timer: Timer = $Timer
 
-func _ready() -> void:
+
+func _ready():
+	# make mouse visable so can click
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	# fade setting
+	fadeRect.visible = true
+	fadeRect.color = Color.BLACK
+	fadeRect.modulate.a = 0.0
+	fadeRect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
-	fade_rect.visible = true
-	fade_rect.color = Color.BLACK
-	fade_rect.modulate.a = 0.0
-	fade_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
-
-	timer.wait_time = story_time
+	# timer starts when scene loads
+	# waits story time then switches
+	timer.wait_time = storyTime
 	timer.one_shot = true
 	timer.timeout.connect(_on_timer_timeout)
 	timer.start()
 
-func _on_timer_timeout() -> void:
+func _on_timer_timeout():
 	fade_to_game()
 
-func fade_to_game() -> void:
+# fades screen then next scenes
+func fade_to_game():
 	var tween := create_tween()
-	tween.tween_property(fade_rect, "modulate:a", 1.0, fade_time)
+	tween.tween_property(fadeRect, "modulate:a", 1.0, fadeTime)
 	tween.finished.connect(change_to_game)
 
-func change_to_game() -> void:
-	get_tree().change_scene_to_file(game_scene_path)
+#next scene
+func change_to_game():
+	get_tree().change_scene_to_file(gameScenePath)
