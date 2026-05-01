@@ -1087,6 +1087,22 @@ texture = ExtResource("11_v5j5c")
 transform = Transform3D(0.35, 0, 0, 0, 0.36, 0, 0, 0, 0.3, 45.199997, 4.7599993, -75.100006)
 texture = ExtResource("11_v5j5c")
 
+[node name="badsign4" type="Sprite3D" parent="NavigationRegion3D" unique_id=643543306]
+transform = Transform3D(0.35, 0, 0, 0, 0.36, 0, 0, 0, 0.3, 62.699997, 4.7599993, -43.900005)
+texture = ExtResource("11_v5j5c")
+
+[node name="badsign5" type="Sprite3D" parent="NavigationRegion3D" unique_id=542308447]
+transform = Transform3D(0.35, 0, 0, 0, 0.36, 0, 0, 0, 0.3, 68.299995, 4.7599993, -106.600006)
+texture = ExtResource("11_v5j5c")
+
+[node name="badsign6" type="Sprite3D" parent="NavigationRegion3D" unique_id=923245919]
+transform = Transform3D(-1.5298985e-08, 0, 0.3, 0, 0.36, 0, -0.35, 0, -1.3113417e-08, 29.599995, 5.839999, -127.950005)
+texture = ExtResource("11_v5j5c")
+
+[node name="badsign7" type="Sprite3D" parent="NavigationRegion3D" unique_id=329860252]
+transform = Transform3D(-1.5298985e-08, 0, 0.3, 0, 0.36, 0, -0.35, 0, -1.3113417e-08, 3.4999943, 5.839999, -127.950005)
+texture = ExtResource("11_v5j5c")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=374747481]
 environment = SubResource("Environment_f2txt")
 
