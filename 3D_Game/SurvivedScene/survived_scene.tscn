@@ -37,7 +37,6 @@ offset_left = 10.0
 offset_right = 1926.0
 offset_bottom = 1084.0
 mouse_filter = 2
-text = "This is where the footage stops. No other footage was recovered beyond this point. However, it is likly that there are other tapes scattered throught "
 
 [connection signal="pressed" from="Manager/PlayAgain" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="Manager/Exit" to="." method="_on_exit_pressed"]
