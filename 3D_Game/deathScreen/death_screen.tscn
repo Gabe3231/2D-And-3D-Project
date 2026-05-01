@@ -23,12 +23,21 @@ text = "Retry
 
 [node name="Controls" type="Button" parent="ButtonManager"]
 layout_mode = 0
-offset_left = 374.0
-offset_top = 716.0
-offset_right = 1618.0
-offset_bottom = 888.0
+offset_left = 370.0
+offset_top = 630.0
+offset_right = 1614.0
+offset_bottom = 802.0
 text = "Controls
 "
 
+[node name="Exit" type="Button" parent="ButtonManager"]
+layout_mode = 0
+offset_left = 372.0
+offset_top = 840.0
+offset_right = 1616.0
+offset_bottom = 1012.0
+text = "Exit"
+
 [connection signal="button_down" from="ButtonManager/Retry" to="." method="_on_retry_button_down"]
 [connection signal="button_down" from="ButtonManager/Controls" to="." method="_on_controls_button_down"]
+[connection signal="pressed" from="ButtonManager/Exit" to="." method="_on_exit_pressed"]

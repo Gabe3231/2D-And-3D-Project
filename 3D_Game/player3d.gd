@@ -53,7 +53,8 @@ func _ready() -> void:
 	staminaBar.value = stamina
 	flashlight.visible = flashlightOn
 
-func updateFlashEffect() -> void:
+# flashlight ui image visible or not visble
+func updateFlashEffect():
 	if flashlightOn:
 		FlashEffect.visible = true
 		FlashEffect.modulate.a = 0.18
@@ -84,7 +85,7 @@ func enemy_attack_effect():
 func changeToDeathScreen() -> void:
 	get_tree().change_scene_to_file("res://deathScreen/death_screen.tscn")
 
-
+#most logic from youtuve vid but kinda standard for most inputs 
 func _unhandled_input(event: InputEvent) -> void:
 	if isDead:
 		return
@@ -105,10 +106,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("flashlight"):
 		flashlightOn = !flashlightOn
 		flashlight.visible = flashlightOn
-
 		flashlightSound.stop()
-		flashlightSound.pitch_scale = 1.3
+		# how fast it sounds cuz slow using original audio
+		flashlightSound.pitch_scale = 1.4
 		flashlightSound.play()
+		# flashlight UI visible when turn on
 		updateFlashEffect()
 
 

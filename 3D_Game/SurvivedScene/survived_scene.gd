@@ -1,6 +1,7 @@
 extends Node2D
 
-func _ready() -> void:
+# had mouse issue where i could not click out of game
+func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _on_play_again_pressed() -> void:
