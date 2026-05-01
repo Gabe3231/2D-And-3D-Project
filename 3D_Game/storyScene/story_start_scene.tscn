@@ -10,13 +10,6 @@ script = ExtResource("1_3ll1b")
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
 offset_right = 1916.0
 offset_bottom = 1078.0
-text = "Footage was recovered from a camera lost the subliminal space. It is unknown the wherabouts of this surviovr or their status. 
-
-This footage serves as training for any perssonel enerting the maze and its subsequent sections. 
-
-This footage servers as a warning for any who enter as there lurks creatures within the maze.
-
-Use this footage to navigate the maze but be wary at all times."
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
