@@ -1091,6 +1091,26 @@ texture = ExtResource("11_v5j5c")
 transform = Transform3D(0.35, 0, 0, 0, 0.36, 0, 0, 0, 0.3, 62.699997, 4.7599993, -43.900005)
 texture = ExtResource("11_v5j5c")
 
+[node name="badsign8" type="Sprite3D" parent="NavigationRegion3D" unique_id=1611083704]
+transform = Transform3D(0.35, 0, 0, 0, 0.36, 0, 0, 0, 0.3, 76.7, 4.7599993, -9.100005)
+texture = ExtResource("11_v5j5c")
+
+[node name="badsign9" type="Sprite3D" parent="NavigationRegion3D" unique_id=1870407055]
+transform = Transform3D(0.35, 0, 0, 0, 0.36, 0, 0, 0, 0.3, -3.4500046, 4.7599993, -94.600006)
+texture = ExtResource("11_v5j5c")
+
+[node name="badsign10" type="Sprite3D" parent="NavigationRegion3D" unique_id=1255037678]
+transform = Transform3D(0.35, 0, 0, 0, 0.36, 0, 0, 0, 0.3, 10.199995, 4.7599993, -46.900005)
+texture = ExtResource("11_v5j5c")
+
+[node name="badsign11" type="Sprite3D" parent="NavigationRegion3D" unique_id=1529551965]
+transform = Transform3D(0.35, 0, 0, 0, 0.36, 0, 0, 0, 0.3, -7.6500053, 4.7599993, -30.100004)
+texture = ExtResource("11_v5j5c")
+
+[node name="badsign12" type="Sprite3D" parent="NavigationRegion3D" unique_id=1236802741]
+transform = Transform3D(0.35, 0, 0, 0, 0.36, 0, 0, 0, 0.3, -30.750008, 4.3999987, -30.100006)
+texture = ExtResource("11_v5j5c")
+
 [node name="badsign5" type="Sprite3D" parent="NavigationRegion3D" unique_id=542308447]
 transform = Transform3D(0.35, 0, 0, 0, 0.36, 0, 0, 0, 0.3, 68.299995, 4.7599993, -106.600006)
 texture = ExtResource("11_v5j5c")
