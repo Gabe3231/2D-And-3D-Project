@@ -29,13 +29,9 @@ texture = ExtResource("3_h8pex")
 expand_mode = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1847208901]
-custom_minimum_size = Vector2(1920, 1080)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 2.0
-offset_right = 1920.0
-offset_bottom = 1082.0
 grow_horizontal = 2
 grow_vertical = 2
 
