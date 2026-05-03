@@ -1,9 +1,6 @@
 extends Node3D
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	MusicManager.get_node("AudioStreamPlayer").stop()
+@onready var player: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func stop_music():
+	player.stop()
