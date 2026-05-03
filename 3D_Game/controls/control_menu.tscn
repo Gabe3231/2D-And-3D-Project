@@ -1,17 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://cs2nhhpgleqb"]
+[gd_scene format=3 uid="uid://cs2nhhpgleqb"]
 
 [ext_resource type="Script" uid="uid://cea347febhr8j" path="res://controls/control_menu.gd" id="1_re5pw"]
+[ext_resource type="Texture2D" uid="uid://c1yklgpbfqw5f" path="res://background/pexels-lisettkruusimae-5244310.jpg" id="2_dka3l"]
+[ext_resource type="Texture2D" uid="uid://dhfk4d3in3xoo" path="res://background/Untitled design.png" id="3_v05n0"]
 
-[node name="ControlMenu" type="Node2D"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_24uvb"]
+blend_mode = 3
+
+[node name="ControlMenu" type="Node2D" unique_id=1251147891]
 script = ExtResource("1_re5pw")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 10.0
-offset_top = 18.0
-offset_right = 1904.0
-offset_bottom = 1072.0
+[node name="Paper" type="TextureRect" parent="." unique_id=600935393]
+offset_left = 1920.0
+offset_right = 3000.0
+offset_bottom = 1920.0
+rotation = 1.5707964
+texture = ExtResource("2_dka3l")
+expand_mode = 1
 
-[node name="Button" type="Button" parent="."]
+[node name="HandPrint" type="TextureRect" parent="." unique_id=432279043]
+material = SubResource("CanvasItemMaterial_24uvb")
+offset_left = 531.0
+offset_top = -216.0
+offset_right = 1440.7524
+offset_bottom = 812.9348
+rotation = 0.7853982
+texture = ExtResource("3_v05n0")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1007587352]
+clip_contents = false
+offset_left = 1.0
+offset_top = 3.0
+offset_right = 1922.0
+offset_bottom = 1076.0
+
+[node name="Button" type="Button" parent="." unique_id=1552579042]
 offset_left = 584.0
 offset_top = 821.0
 offset_right = 1376.0
