@@ -13,13 +13,13 @@ extends Node
 # formatting story text
 func _ready():
 	label.bbcode_enabled = true
-	label.text = "[center]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[b][font_size=36]Footage was recovered from a camera that had been lost in the subliminal space. It is unknown where this survivor is or their status. It seems the surviors goal was to [color=red]FIND THE EXIT[/color]. 
+	label.text = "[center]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[outline_size=2][outline_color=black][b][font_size=36]Footage was recovered from a camera that had been lost in the subliminal space. It is unknown where this survivor is or their status. It seems the surviors goal was to [color=red]FIND THE EXIT[/color].
 
-This footage serves as training for any personnel entering the maze and its subsequent sections. 
+This footage serves as training for any personnel entering the maze and its subsequent sections.
 
 This footage serves as a warning to anyone who enters: [color=red]CREATURES LURK WITHIN THE MAZE[/color].
 
-Use this footage to navigate the maze, but [color=red]BE WARY[/color] at all times.[/font_size][/b][/center]"
+Use this footage to navigate the maze, but [color=red]BE WARY[/color] at all times.[/font_size][/b][/outline_color][/outline_size][/center]"
 
 	# make mouse visable so can click
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

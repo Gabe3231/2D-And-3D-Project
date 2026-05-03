@@ -1,17 +1,40 @@
-[gd_scene load_steps=2 format=3 uid="uid://hmkh3hnipakb"]
+[gd_scene format=3 uid="uid://hmkh3hnipakb"]
 
 [ext_resource type="Script" uid="uid://b7goxpot1ay4g" path="res://storyScene/story_start_scene.gd" id="1_3ll1b"]
+[ext_resource type="Texture2D" uid="uid://c1yklgpbfqw5f" path="res://background/pexels-lisettkruusimae-5244310.jpg" id="2_rwpjt"]
+[ext_resource type="Texture2D" uid="uid://dhfk4d3in3xoo" path="res://background/Untitled design.png" id="3_vgy88"]
 
-[node name="StoryStartScene" type="Node2D"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lv6db"]
+blend_mode = 3
+
+[node name="StoryStartScene" type="Node2D" unique_id=325795189]
 script = ExtResource("1_3ll1b")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Paper" type="TextureRect" parent="." unique_id=1104248491]
+offset_left = 1920.0
+offset_right = 3000.0
+offset_bottom = 1920.0
+rotation = 1.5707964
+texture = ExtResource("2_rwpjt")
+expand_mode = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+[node name="HandPrint" type="TextureRect" parent="." unique_id=1666647546]
+material = SubResource("CanvasItemMaterial_lv6db")
+offset_left = 531.0
+offset_top = -216.0
+offset_right = 1440.7524
+offset_bottom = 812.9348
+rotation = 0.7853982
+texture = ExtResource("3_vgy88")
+expand_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1474131972]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=1476986815]
 offset_right = 1916.0
 offset_bottom = 1078.0
 
-[node name="Fade" type="ColorRect" parent="CanvasLayer"]
+[node name="Fade" type="ColorRect" parent="CanvasLayer" unique_id=840366759]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -20,4 +43,4 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=2120185171]
