@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dmjh40cyt4mlx"]
 
 [ext_resource type="PackedScene" uid="uid://coil3rftyecxd" path="res://ExitSign.tscn" id="1_2orkt"]
+[ext_resource type="Script" uid="uid://b8heyk8w55syd" path="res://level.gd" id="1_5pxul"]
 [ext_resource type="Texture2D" uid="uid://do1cxsjo5rs1n" path="res://textures/floor/worn_tile_floor_diff_1k.png" id="1_i2t4f"]
 [ext_resource type="PackedScene" uid="uid://cleaqj3ujgtnn" path="res://player.tscn" id="1_u52ul"]
 [ext_resource type="Texture2D" uid="uid://css7mor71dr21" path="res://textures/floor/worn_tile_floor_nor_gl_1k.png" id="2_8cye3"]
@@ -54,6 +55,7 @@ fog_density = 0.019
 
 [node name="Level" type="Node3D" unique_id=1946869649]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.7683716e-07, 20)
+script = ExtResource("1_5pxul")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=307783909]
 navigation_mesh = SubResource("NavigationMesh_f2txt")
