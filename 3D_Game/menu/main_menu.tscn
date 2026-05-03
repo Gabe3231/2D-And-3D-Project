@@ -1,31 +1,40 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8doejtlrvafp"]
+[gd_scene format=3 uid="uid://c8doejtlrvafp"]
 
 [ext_resource type="Script" uid="uid://vbvix6xxsixv" path="res://menu/main_menu.gd" id="1_chmv6"]
+[ext_resource type="VideoStream" uid="uid://d4i1dl0ypcb13" path="res://video/vecteezy_exploring-dark-abandoned-hallway-for-halloween-scare_71732437.ogv" id="2_f5okj"]
 
-[node name="MainMenu" type="Node2D"]
+[node name="MainMenu" type="Node2D" unique_id=1233076668]
 script = ExtResource("1_chmv6")
 
-[node name="ButtonManager" type="Control" parent="."]
+[node name="Background Video" type="VideoStreamPlayer" parent="." unique_id=1653018771]
+offset_right = 1921.0
+offset_bottom = 1083.0
+stream = ExtResource("2_f5okj")
+autoplay = true
+expand = true
+loop = true
+
+[node name="ButtonManager" type="Control" parent="." unique_id=1484961527]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Start" type="Button" parent="ButtonManager"]
+[node name="Start" type="Button" parent="ButtonManager" unique_id=1082598906]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 0
-offset_left = 380.0
-offset_top = 424.0
-offset_right = 1601.0
-offset_bottom = 587.0
+offset_left = 678.0
+offset_top = 824.0
+offset_right = 903.0
+offset_bottom = 952.0
 text = "Start"
 
-[node name="Controls" type="Button" parent="ButtonManager"]
+[node name="Controls" type="Button" parent="ButtonManager" unique_id=1776993366]
 layout_mode = 0
-offset_left = 374.0
-offset_top = 716.0
-offset_right = 1618.0
-offset_bottom = 888.0
+offset_left = 1017.0
+offset_top = 824.0
+offset_right = 1242.0
+offset_bottom = 952.0
 text = "Controls
 "
 
