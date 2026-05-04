@@ -63,6 +63,12 @@ offset_bottom = 1274.0
 scale = Vector2(0.4, 0.4)
 texture_normal = ExtResource("2_2hs0m")
 
+[node name="ControlsText" type="RichTextLabel" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 1912.0
+offset_bottom = 1080.0
+mouse_filter = 2
+
 [node name="DeathFade" type="ColorRect" parent="CanvasLayer"]
 modulate = Color(0, 0, 0, 1)
 anchors_preset = 15

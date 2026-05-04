@@ -4,7 +4,7 @@ extends CharacterBody3D
 const walkSpeed := 5.0
 const sprintSpeed := 9.0
 const jumpVelocity := 4.5
-const sensitivity := 0.003
+const sensitivity := 0.009
 
 # stamina stuff so player cant sprint forever
 const maxStamina := 100.0
@@ -16,6 +16,13 @@ var stamina := maxStamina
 var canSprint := true
 var isDead := false
 var flashlightOn := false
+
+# basic user instruction timer fade
+var titleSize := 28
+var textSize := 20
+var fadeTime := 1.0
+var displayTime := 10.0
+var fadeOutTime := 1.5
 
 # camera stuff for player looking around
 @onready var pivot: Node3D = $Pivot
@@ -36,6 +43,8 @@ var flashlightOn := false
 @onready var runSound: AudioStreamPlayer3D = $run
 @onready var flashlightSound: AudioStreamPlayer3D = $flashlight
 
+@onready var controlsText: RichTextLabel = $"CanvasLayer/Control/ControlsText"
+
 func _ready() -> void:
 	# add player to player group so enemy can find him
 	add_to_group("player")
@@ -52,6 +61,24 @@ func _ready() -> void:
 	staminaBar.max_value = maxStamina
 	staminaBar.value = stamina
 	flashlight.visible = flashlightOn
+	
+	# make sure its visable and mouse ignores
+	controlsText.visible = true
+	controlsText.modulate.a = 0.0
+	controlsText.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	# text displayed
+	controlsText.bbcode_enabled = true
+	controlsText.text = "[center][b][font_size=%d]CONTROLS[/font_size][/b]\n\n[font_size=%d]WASD - Move\nShift - Sprint\nMouse - Look\nF - Flashlight\nESC - Escape[/font_size][/center]" % [titleSize, textSize]
+	# fade in
+	var fadeInTween := create_tween()
+	fadeInTween.tween_property(controlsText, "modulate:a", 1.0, fadeTime)
+	await fadeInTween.finished
+	# \fade and timer conreol
+	await get_tree().create_timer(displayTime).timeout
+	var fadeOutTween := create_tween()
+	fadeOutTween.tween_property(controlsText, "modulate:a", 0.0, fadeOutTime)
+	await fadeOutTween.finished
+	controlsText.visible = false
 
 # flashlight ui image visible or not visble
 func updateFlashEffect():
